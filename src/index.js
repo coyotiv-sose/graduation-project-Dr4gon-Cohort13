@@ -6,7 +6,7 @@ let ingrid = 'Ingrid';
 let inputName = 'Veronica';
 
 if (inputName === veronica) {
-  console.log('Aiii caramba!');
+  console.log('molto obrigada');
 } else {
   console.log('No eres Veronica');
 }

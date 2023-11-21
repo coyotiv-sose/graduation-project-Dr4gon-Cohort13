@@ -1,6 +1,12 @@
 console.log('Hi Cohort 13! Show me the commits!awdadwawdawdadw');
-I am doing funny things jejeje
-aw  anything again dfdfdf si señor
 
-aw
-dawd
+let veronica = 'Veronica';
+let ingrid = 'Ingrid';
+
+let inputName = 'Veronica';
+
+if (inputName === veronica) {
+  console.log('Aiii caramba!');
+} else {
+  console.log('No eres Veronica');
+}

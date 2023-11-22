@@ -8,5 +8,5 @@ let inputName = 'Ingrid';
 if (inputName === veronica) {
   console.log('Aiii caramba!');
 } else {
-  console.log('No eres Veronica');
+  console.log('No eres Ingrid!');
 }

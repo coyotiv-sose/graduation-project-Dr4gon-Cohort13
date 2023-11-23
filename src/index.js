@@ -12,6 +12,7 @@ if (inputName === veronica) {
 }
 
 console.log('Avengers Assemble!');
+console.log('Thanos use the infinity stones to erase half of the universe');
 console.log('Thor throws Molnyr at Thanos!');
 
 console.log('Captain America throws his shield at Thanos!');

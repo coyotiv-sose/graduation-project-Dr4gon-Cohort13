@@ -10,3 +10,5 @@ if (inputName === veronica) {
 } else {
   console.log('No eres Ingrid!');
 }
+
+console.log('Thanos uses the inifinity stones to snap his fingers and half of the population disappears');

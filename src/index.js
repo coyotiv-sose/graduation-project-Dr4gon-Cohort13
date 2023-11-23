@@ -1,14 +1,14 @@
-console.log('Hi Cohort 13! Show me the commits!awdadwawdawdadw');
+console.log('Hi Cohort 13! Show me the commits!awdadwawdawdadw')
 
-let veronica = 'Veronica';
-let ingrid = 'Ingrid';
+const veronica = 'Veronica'
+const ingrid = 'Ingrid'
 
-let inputName = 'Ingrid';
+const inputName = 'Ingrid'
 
 if (inputName === veronica) {
-  console.log('molto obrigada');
+  console.log('molto obrigada')
 } else {
-  console.log('No eres Ingrid!');
+  console.log('No eres Ingrid!')
 }
-
-console.log('Avengers Assemble!');
+console.log('Me not likes Thanos')
+console.log('Avengers Assemble!')

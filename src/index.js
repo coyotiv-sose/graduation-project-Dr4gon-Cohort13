@@ -10,5 +10,5 @@ if (inputName === veronica) {
 } else {
   console.log('No eres Ingrid!')
 }
-console.log('Me not likes Thanos')
+console.log('Gamora not likes Thanos')
 console.log('Avengers Assemble!')

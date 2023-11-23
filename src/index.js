@@ -12,3 +12,4 @@ if (inputName === veronica) {
 }
 
 console.log('Avengers Assemble!');
+console.log('Thor throws Molnyr at Thanos!');

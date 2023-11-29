@@ -1,27 +1,27 @@
-const newP = document.createElement('p');
-newP.innerText = 'Bla';
-document.querySelector('body').appendChild(newP);
+const counterElementShow = document.createElement('p');
+counterElementShow.innerHTML = '0';
+document.querySelector('body').appendChild(counterElementShow);
 
+let counter = 0;
+
+// Increase the counter by 1 when the button is clicked
 const button1 = document.createElement('button');
-button1.innerText = 'Click me, dude!';
+button1.innerText = 'Increase';
 document.querySelector('body').appendChild(button1);
 button1.classList.add('btn', 'btn-success');
 
 button1.addEventListener('click', () => {
-  console.log('You clicked me!');
-  button1.innerText = 'You clicked me!';
+  counter++;
+  counterElementShow.innerHTML = counter;
 });
 
-// If you click on button2, it will change the text of button1
-button1.addEventListener('click', () => {
-  button1.innerText = 'You pushed me dude!';
-});
+// Decrease the counter by 1 when the button is clicked
 const button2 = document.createElement('button');
-button2.innerText = 'Click to follow up';
+button2.innerText = 'Decrease';
 document.querySelector('body').appendChild(button2);
-button2.classList.add('btn', 'btn-success');
+button2.classList.add('btn', 'btn-dark');
 
 button2.addEventListener('click', () => {
-  console.log('You clicked me!');
-  button1.innerText = 'Click to follow up';
+  counter--;
+  counterElementShow.innerHTML = counter;
 });

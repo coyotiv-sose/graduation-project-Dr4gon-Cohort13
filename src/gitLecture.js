@@ -1,18 +1,19 @@
-console.log('Hi Cohort 13! Show me the commits!awdadwawdawdadw');
+console.log('Hi Cohort 13! Show me the commits, dawg');
+console.log('Dawg??');
 
 let veronica = 'Veronica';
-let ingrid = 'Ingrid';
+let badspy = 'Maria';
+let beStrong = 'patience';
 
-let inputName = 'Ingrid';
+let inputName = 'Maria';
 
 if (inputName === veronica) {
-  console.log('molto obrigada');
+  console.log('muchas gracias');
 } else {
-  console.log('No eres Ingrid!');
+  console.log('No eres Maria!');
 }
 
-console.log('Avengers Assemble!');
-console.log('Thanos use the infinity stones to erase half of the universe');
-console.log('Thor throws Molnyr at Thanos!');
-
-console.log('Captain America throws his shield at Thanos!');
+console.log('Avengers Assemble! Booooo');
+console.log('Thanos use the infinity stones to erase half of the universe. Marie Kondo up in here.');
+console.log('Thor throws Molnyr at Thanos! So rude.');
+console.log('Captain America throws his shield at Thanos!'`What's with the throwing things`);

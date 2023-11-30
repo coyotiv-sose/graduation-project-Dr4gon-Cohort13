@@ -38,14 +38,15 @@ button1.addEventListener('click', () => {
   counterElementShow.innerHTML = counter;
 });
 
-function createButton(buttonName, buttonClasses) {
+function createButton(buttonName, buttonClass) {
   const button = document.createElement('button');
 
   button.innerText = buttonName;
   document.querySelector('body').appendChild(button);
-  console.log(buttonClasses); // ['btn', 'btn-dark']
-  button.classList.add(buttonClasses[0], buttonClasses[1]);
-  //
+  console.log(buttonClass); // 'btn-darK
+  button.classList.add('btn', buttonClass);
+  // button.classList.add('btn','btn-darK');
+  // button1.classList.add('btn', 'btn-success');
 
   button.addEventListener('click', () => {
     counter--;
@@ -53,4 +54,4 @@ function createButton(buttonName, buttonClasses) {
   });
 }
 
-createButton('Decrease', ['btn', 'btn-dark']);
+createButton('Decrease', 'btn-dark');

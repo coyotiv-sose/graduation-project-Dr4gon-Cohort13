@@ -48,12 +48,17 @@ function createButton(buttonName, buttonClass) {
   // button1.classList.add('btn', 'btn-success');
 }
 
-function decrease() {
+function addGiveFunctionToButton() {
   button.addEventListener('click', () => {
-    counter--;
-    counterElementShow.innerHTML = counter;
+    if (buttonName === 'Increase') {
+      counter++;
+      counterElementShow.innerHTML = counter;
+    } else if (buttonName === 'Decrease') {
+      counter--;
+      counterElementShow.innerHTML = counter;
+    }
   });
 }
 
-createButton('Decrease', 'btn-dark');
-decrease();
+createButton('Increase', 'btn-success');
+addGiveFunctionToButton('Increase');

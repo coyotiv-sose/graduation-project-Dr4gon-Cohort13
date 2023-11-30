@@ -59,6 +59,9 @@ function addGiveFunction(button) {
     } else if (button.innerText === 'Decrease') {
       counter--;
       counterElementShow.innerHTML = counter;
+    } else {
+      counter = 0;
+      counterElementShow.innerHTML = counter;
     }
   });
 }
@@ -70,3 +73,8 @@ addGiveFunction(decreaseButton);
 
 const increaseButton = createButton('Increase', 'btn-success');
 addGiveFunction(increaseButton);
+
+for (let index = 0; index < 10; index++) {
+  const button = createButton('button' + index, 'btn-primary');
+  addGiveFunction(button);
+}

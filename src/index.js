@@ -17,48 +17,56 @@ bodyHTML.appendChild(counterElementShow);
 // It's a number with default 0
 let counter = 0;
 
-// Increase the counter by 1 when the button is clicked
-// <button> Increase </button>
-const button1 = document.createElement('button');
-button1.innerText = 'Increase';
+// // Increase the counter by 1 when the button is clicked
+// // <button> Increase </button>
+// const button1 = document.createElement('button');
+// button1.innerText = 'Increase';
 
-// <body> <p>0</p> <button> Increase </button> </body>
-document.querySelector('body').appendChild(button1);
+// // <body> <p>0</p> <button> Increase </button> </body>
+// document.querySelector('body').appendChild(button1);
 
-// <body> <p>0</p> <button class='btn btn-success'> Increase </button> </body>
-button1.classList.add('btn', 'btn-success');
+// // <body> <p>0</p> <button class='btn btn-success'> Increase </button> </body>
+// button1.classList.add('btn', 'btn-success');
 
-// <body> <p>0</p> <button class='btn btn-success'> Increase </button> </body>
-// You can't see the listener but it's there
-// You need to fire the event click = mouse click
-button1.addEventListener('click', () => {
-  // Increase the counter by 1
-  counter++;
-  // Show the counter in the HTML
-  counterElementShow.innerHTML = counter;
-});
-const button = document.createElement('button');
+// // <body> <p>0</p> <button class='btn btn-success'> Increase </button> </body>
+// // You can't see the listener but it's there
+// // You need to fire the event click = mouse click
+// button1.addEventListener('click', () => {
+//   // Increase the counter by 1
+//   counter++;
+//   // Show the counter in the HTML
+//   counterElementShow.innerHTML = counter;
+// });
 
 function createButton(buttonName, buttonClass) {
+  const button = document.createElement('button');
+
   button.innerText = buttonName;
   document.querySelector('body').appendChild(button);
   console.log(buttonClass); // 'btn-darK
   button.classList.add('btn', buttonClass);
   // button.classList.add('btn','btn-darK');
   // button1.classList.add('btn', 'btn-success');
+
+  return button; // <button class='btn awdawd'> buttonName </button>
 }
 
-function addGiveFunctionToButton() {
+function addGiveFunction(button) {
   button.addEventListener('click', () => {
-    if (buttonName === 'Increase') {
+    if (button.innerText === 'Increase') {
       counter++;
       counterElementShow.innerHTML = counter;
-    } else if (buttonName === 'Decrease') {
+    } else if (button.innerText === 'Decrease') {
       counter--;
       counterElementShow.innerHTML = counter;
     }
   });
 }
+const decreaseButtonName = 'Decrease';
 
-createButton('Increase', 'btn-success');
-addGiveFunctionToButton('Increase');
+const decreaseButton = createButton(decreaseButtonName, 'btn-dark');
+// decreaseButton = buttonName, html tag, css classes
+addGiveFunction(decreaseButton);
+
+const increaseButton = createButton('Increase', 'btn-success');
+addGiveFunction(increaseButton);

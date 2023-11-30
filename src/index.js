@@ -38,10 +38,10 @@ button1.addEventListener('click', () => {
   counterElementShow.innerHTML = counter;
 });
 
-function createButton() {
+function createButton(buttonName) {
   const button = document.createElement('button');
 
-  button.innerText = 'Decrease';
+  button.innerText = buttonName;
   document.querySelector('body').appendChild(button);
   button.classList.add('btn', 'btn-dark');
 
@@ -51,4 +51,4 @@ function createButton() {
   });
 }
 
-createButton();
+createButton('Decrease');

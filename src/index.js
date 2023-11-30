@@ -37,17 +37,18 @@ button1.addEventListener('click', () => {
   // Show the counter in the HTML
   counterElementShow.innerHTML = counter;
 });
+const button = document.createElement('button');
 
 function createButton(buttonName, buttonClass) {
-  const button = document.createElement('button');
-
   button.innerText = buttonName;
   document.querySelector('body').appendChild(button);
   console.log(buttonClass); // 'btn-darK
   button.classList.add('btn', buttonClass);
   // button.classList.add('btn','btn-darK');
   // button1.classList.add('btn', 'btn-success');
+}
 
+function decrease() {
   button.addEventListener('click', () => {
     counter--;
     counterElementShow.innerHTML = counter;
@@ -55,3 +56,4 @@ function createButton(buttonName, buttonClass) {
 }
 
 createButton('Decrease', 'btn-dark');
+decrease();

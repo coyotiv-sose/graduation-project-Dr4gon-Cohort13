@@ -50,6 +50,9 @@ let Ingrid = {
   birthDate: '1933-12-24', // Date
   email: 'ingrid@christmas.miracle',
   location: ['Berlin'],
+  askForWetSuit: function () {
+    return deLong.chooseWetSuit(this.height);
+  },
 };
 
 let alex = {
@@ -61,6 +64,9 @@ let alex = {
   birthDate: '2008-12-24', // Date
   email: 'alexaa@christmas.miracle',
   location: ['BadHomburg'],
+  askForWetSuit: function () {
+    return deLong.chooseWetSuit(this.height);
+  },
 };
 
 // User can login with nickname and password
@@ -147,12 +153,6 @@ console.log(
 console.log(`This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${preet.askForWetSuit()}`);
 
 console.log(
-  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${deLong.chooseWetSuit(
-    Ingrid['height']
-  )}`
+  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${Ingrid.askForWetSuit()}`
 );
-console.log(
-  `This is test for retrieving wetsuit size of Alex and we expect XL. Alexs size ${deLong.chooseWetSuit(
-    alex['height']
-  )}`
-);
+console.log(`This is test for retrieving wetsuit size of Alex and we expect XL. Alexs size ${alex.askForWetSuit()}`);

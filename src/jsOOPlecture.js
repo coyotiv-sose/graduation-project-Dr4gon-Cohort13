@@ -80,3 +80,19 @@ const board = {
 // User filters wave level to pick the right wave for the start
 // User is shown friendly community, and board suggestions
 // User is able to look opening hours of the riverwave
+
+const eisbach = {
+  location: 'Munich',
+  level: ['advanced', 'pro'],
+  community: 'arrogant',
+  openingHours: '24/7',
+  price: 0,
+};
+
+const floßlaende = {
+  location: 'Munich',
+  level: ['beginner', 'advanced'],
+  community: 'friendly',
+  openingHours: '6AM-18PM',
+  price: 0,
+};

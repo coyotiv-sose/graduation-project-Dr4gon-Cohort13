@@ -31,6 +31,16 @@ let Ingrid = {
   email: 'ingrid@christmas.miracle',
   location: ['Berlin'],
 };
+let alex = {
+  nickName: 'Alex',
+  name: 'Alex',
+  age: 15,
+  height: 1.9,
+  weight: 60,
+  birthDate: '2008-12-24', // Date
+  email: 'alexaa@christmas.miracle',
+  location: ['BadHomburg'],
+};
 
 // User can login with nickname and password
 // User can join community
@@ -107,10 +117,18 @@ function chooseWetSuit(height) {
   else return 'XL';
 }
 
+console.log(`------------------------------ Wetsuite Tests -------------------------------------------------`);
+
 console.log(
   `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${chooseWetSuit(1.6)}`
 );
 
 console.log(
-  `This is test for retrieving wetsuit size of Preet and we expect L Preets size ${chooseWetSuit(preet['height'])}`
+  `This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${chooseWetSuit(preet['height'])}`
+);
+console.log(
+  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${chooseWetSuit(Ingrid['height'])}`
+);
+console.log(
+  `This is test for retrieving wetsuit size of Alex and we expect XL. Alexs size ${chooseWetSuit(alex['height'])}`
 );

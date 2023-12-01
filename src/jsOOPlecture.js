@@ -25,7 +25,7 @@ let Ingrid = {
   nickName: 'Ingrid',
   name: 'Ingrid',
   age: 90,
-  height: 1.74,
+  height: 1.4,
   weight: 174,
   birthDate: '1933-12-24', // Date
   email: 'ingrid@christmas.miracle',
@@ -45,7 +45,7 @@ let Ingrid = {
 // ---------- translates into the following user stories: ----------
 
 // Basic equipment for riversurfing
-// User can see different suits and pick one according to their fit and the season they want to surf in
+// User can see diffent suits and pick one according to their fit and the season they want to surf in
 // User can see different boards and pick one according to their fit
 // User can check sizes for helmet and west
 
@@ -96,3 +96,15 @@ const floßlaende = {
   openingHours: '6AM-18PM',
   price: 0,
 };
+
+// User flow
+
+// determine what wet suits is good for preet
+function chooseWetSuit(height) {
+  if (height <= 1.5) return 'S';
+  if (1.5 < height && height < 1.75) return 'S';
+  if (1.75 <= height && height < 1.9) return 'L';
+  else return 'XL';
+}
+
+console.log(chooseWetSuit(1.6));

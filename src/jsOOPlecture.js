@@ -10,6 +10,37 @@ console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍�
 // User profile/login
 // User fills form with nickname, name , weight, birth date, height, email, location to register
 
+class Person {
+  constructor(nickName, name, age, height, email, location) {
+    this.nickName = nickname;
+    this.name = name;
+    this.age = age;
+    this.height = height;
+    this.email = email;
+    this.location = location;
+  }
+  get nickname() {
+    return this.nickName;
+  }
+  get name() {
+    return this.name;
+  }
+  get age() {
+    return this.age;
+  }
+  get height() {
+    return this.height;
+  }
+  get email() {
+    return this.email;
+  }
+  get location() {
+    return this.location;
+  }
+  askForWetSuit() {
+    return deLong.chooseWetSuit(this.height);
+  }
+}
 let deLong = {
   nickName: 'deLong',
   name: 'deLong',
@@ -27,35 +58,11 @@ let deLong = {
   },
 };
 
-let preet = {
-  nickName: 'Preet',
-  name: 'Gupreetx',
-  age: 33,
-  height: 1.78,
-  weight: 80,
-  birthDate: '1990-12-06',
-  email: 'preet@gopro.com',
-  location: ['Munich', 'Hannover'],
-  askForWetSuit: function () {
-    return deLong.chooseWetSuit(this.height);
-  },
-};
+let preet = new Person('Preet', 'Gupreet', 33, 1.78, 80, '1990-12-06', 'preet@gopro.com', ['Munich', 'Hannover']);
+let ingrid = new Person('Ingrid', 'Ingrid', 90, 1.4, 174, '1933-12-24', 'ingrid@christmas.miracle', ['Berlin']);
+let alex = new Person('Alex', 'Alex', 15, 1.9, 60, '2008-12-24', 'alexaa@christmas.miracle', ['Bad Homburg']);
 
-let Ingrid = {
-  nickName: 'Ingrid',
-  name: 'Ingrid',
-  age: 90,
-  height: 1.4,
-  weight: 174,
-  birthDate: '1933-12-24', // Date
-  email: 'ingrid@christmas.miracle',
-  location: ['Berlin'],
-  askForWetSuit: function () {
-    return deLong.chooseWetSuit(this.height);
-  },
-};
-
-let alex = {
+/* {
   nickName: 'Alex',
   name: 'Alex',
   age: 15,
@@ -67,7 +74,34 @@ let alex = {
   askForWetSuit: function () {
     return deLong.chooseWetSuit(this.height);
   },
-};
+}; */
+/* {
+  nickName: 'Preet',
+  name: 'Gupreetx',
+  age: 33,
+  height: 1.78,
+  weight: 80,
+  birthDate: '1990-12-06',
+  email: 'preet@gopro.com',
+  location: ['Munich', 'Hannover'],
+  askForWetSuit: function () {
+    return deLong.chooseWetSuit(this.height);
+  },
+}; */
+
+/* let Ingrid = {
+  nickName: 'Ingrid',
+  name: 'Ingrid',
+  age: 90,
+  height: 1.4,
+  weight: 174,
+  birthDate: '1933-12-24', // Date
+  email: 'ingrid@christmas.miracle',
+  location: ['Berlin'],
+  askForWetSuit: function () {
+    return deLong.chooseWetSuit(this.height);
+  },
+}; */
 
 // User can login with nickname and password
 // User can join community
@@ -153,6 +187,6 @@ console.log(
 console.log(`This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${preet.askForWetSuit()}`);
 
 console.log(
-  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${Ingrid.askForWetSuit()}`
+  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${ingrid.askForWetSuit()}`
 );
 console.log(`This is test for retrieving wetsuit size of Alex and we expect XL. Alexs size ${alex.askForWetSuit()}`);

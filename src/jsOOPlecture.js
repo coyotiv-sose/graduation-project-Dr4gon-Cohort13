@@ -110,3 +110,7 @@ function chooseWetSuit(height) {
 console.log(
   `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${chooseWetSuit(1.6)}`
 );
+
+console.log(
+  `This is test for retrieving wetsuit size of Preet and we expect L Preets size ${chooseWetSuit(preet['height'])}`
+);

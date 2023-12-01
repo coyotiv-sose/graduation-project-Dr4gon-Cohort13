@@ -10,6 +10,23 @@ console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍�
 // User profile/login
 // User fills form with nickname, name , weight, birth date, height, email, location to register
 
+let deLong = {
+  nickName: 'deLong',
+  name: 'deLong',
+  age: 36,
+  height: 1.78,
+  weight: 70,
+  birthDate: '1987-07-28',
+  email: 'delong@delonghi.de',
+  location: ['Munich'],
+  chooseWetSuit: function (height) {
+    if (height <= 1.5) return 'S';
+    if (1.5 < height && height < 1.75) return 'M';
+    if (1.75 <= height && height < 1.9) return 'L';
+    else return 'XL';
+  },
+};
+
 let preet = {
   nickName: 'Preet',
   name: 'Gupreetx',
@@ -31,6 +48,7 @@ let Ingrid = {
   email: 'ingrid@christmas.miracle',
   location: ['Berlin'],
 };
+
 let alex = {
   nickName: 'Alex',
   name: 'Alex',
@@ -110,25 +128,31 @@ const floßlaende = {
 // User flow
 
 // determine what wet suits is good for preet
-function chooseWetSuit(height) {
-  if (height <= 1.5) return 'S';
-  if (1.5 < height && height < 1.75) return 'M';
-  if (1.75 <= height && height < 1.9) return 'L';
-  else return 'XL';
-}
+// function chooseWetSuit(height) {
+//   if (height <= 1.5) return 'S';
+//   if (1.5 < height && height < 1.75) return 'M';
+//   if (1.75 <= height && height < 1.9) return 'L';
+//   else return 'XL';
+// }
 
 console.log(`------------------------------ Wetsuite Tests -------------------------------------------------`);
 
 console.log(
-  `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${chooseWetSuit(1.6)}`
+  `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${deLong.chooseWetSuit(1.6)}`
 );
 
 console.log(
-  `This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${chooseWetSuit(preet['height'])}`
+  `This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${deLong.chooseWetSuit(
+    preet['height']
+  )}`
 );
 console.log(
-  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${chooseWetSuit(Ingrid['height'])}`
+  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${deLong.chooseWetSuit(
+    Ingrid['height']
+  )}`
 );
 console.log(
-  `This is test for retrieving wetsuit size of Alex and we expect XL. Alexs size ${chooseWetSuit(alex['height'])}`
+  `This is test for retrieving wetsuit size of Alex and we expect XL. Alexs size ${deLong.chooseWetSuit(
+    alex['height']
+  )}`
 );

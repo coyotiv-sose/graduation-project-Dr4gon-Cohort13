@@ -11,15 +11,23 @@ console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍�
 // User fills form with nickname, name , weight, birth date, height, email, location to register
 
 class Person {
+  nickName;
+  name;
+  age;
+  height;
+  email;
+  location;
+
   constructor(nickName, name, age, height, email, location) {
-    this.nickName = nickname;
+    this.nickName = nickName;
     this.name = name;
     this.age = age;
     this.height = height;
     this.email = email;
     this.location = location;
   }
-  get nickname() {
+
+  get nickName() {
     return this.nickName;
   }
   get name() {
@@ -37,10 +45,12 @@ class Person {
   get location() {
     return this.location;
   }
+
   askForWetSuit() {
     return deLong.chooseWetSuit(this.height);
   }
 }
+
 let deLong = {
   nickName: 'deLong',
   name: 'deLong',
@@ -184,9 +194,15 @@ console.log(
   `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${deLong.chooseWetSuit(1.6)}`
 );
 
-console.log(`This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${preet.askForWetSuit()}`);
+console.log(
+  `This is test for retrieving wetsuit size of ${preet.nickName} and we expect L. Preets size ${preet.askForWetSuit()}`
+);
 
 console.log(
-  `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${ingrid.askForWetSuit()}`
+  `This is test for retrieving wetsuit size of ${
+    ingrid.nickName
+  } and we expect S. Ingrids size ${ingrid.askForWetSuit()}`
 );
-console.log(`This is test for retrieving wetsuit size of Alex and we expect XL. Alexs size ${alex.askForWetSuit()}`);
+console.log(
+  `This is test for retrieving wetsuit size of ${alex.nickName} and we expect XL. Alexs size ${alex.askForWetSuit()}`
+);

@@ -107,4 +107,4 @@ function chooseWetSuit(height) {
   else return 'XL';
 }
 
-console.log(chooseWetSuit(1.6));
+console.log(`size is ${chooseWetSuit(1.6)}`);

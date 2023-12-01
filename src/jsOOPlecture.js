@@ -36,6 +36,9 @@ let preet = {
   birthDate: '1990-12-06',
   email: 'preet@gopro.com',
   location: ['Munich', 'Hannover'],
+  askForWetSuit: function () {
+    return deLong.chooseWetSuit(this.height);
+  },
 };
 
 let Ingrid = {
@@ -141,11 +144,8 @@ console.log(
   `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${deLong.chooseWetSuit(1.6)}`
 );
 
-console.log(
-  `This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${deLong.chooseWetSuit(
-    preet['height']
-  )}`
-);
+console.log(`This is test for retrieving wetsuit size of Preet and we expect L. Preets size ${preet.askForWetSuit()}`);
+
 console.log(
   `This is test for retrieving wetsuit size of Ingrid and we expect S. Ingrids size ${deLong.chooseWetSuit(
     Ingrid['height']

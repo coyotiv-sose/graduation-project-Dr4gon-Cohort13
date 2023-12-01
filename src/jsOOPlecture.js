@@ -49,6 +49,22 @@ let Ingrid = {
 // User can see different boards and pick one according to their fit
 // User can check sizes for helmet and west
 
+const wetSuit = {
+  name: 'bomb',
+  size: ['S', 'M', 'L', 'XL', 'XXL', 'XXXXL'],
+  color: ['black', 'blue', 'red'],
+  season: ['summer', 'winter'],
+  price: 200,
+  brand: 'RipCurl',
+};
+
+const board = {
+  modelName: 'Shark',
+  brand: 'Wuux',
+  length: [4.1, 5.0, 5.3, 5.4],
+  type: ['soft', 'hard'],
+};
+
 // levels
 // beginner => to be able to stand on a board
 // advanced =>  to be able to turn with a board

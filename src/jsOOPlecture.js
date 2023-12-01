@@ -102,9 +102,11 @@ const floßlaende = {
 // determine what wet suits is good for preet
 function chooseWetSuit(height) {
   if (height <= 1.5) return 'S';
-  if (1.5 < height && height < 1.75) return 'S';
+  if (1.5 < height && height < 1.75) return 'M';
   if (1.75 <= height && height < 1.9) return 'L';
   else return 'XL';
 }
 
-console.log(`size is ${chooseWetSuit(1.6)}`);
+console.log(
+  `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${chooseWetSuit(1.6)}`
+);

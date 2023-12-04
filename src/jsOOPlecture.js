@@ -1,3 +1,5 @@
+const Person = require('./person.js');
+
 console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍♂️🏄🏾‍♀️');
 // how to join Academy?
 //1) Internet 2) social interaction
@@ -9,47 +11,6 @@ console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍�
 
 // User profile/login
 // User fills form with nickname, name , weight, birth date, height, email, location to register
-
-class Person {
-  nickName;
-  name;
-  age;
-  height;
-  email;
-  location;
-
-  constructor(nickName, name, age, height, email, location) {
-    this.nickName = nickName;
-    this.name = name;
-    this.age = age;
-    this.height = height;
-    this.email = email;
-    this.location = location;
-  }
-
-  get nickName() {
-    return this.nickName;
-  }
-  get name() {
-    return this.name;
-  }
-  get age() {
-    return this.age;
-  }
-  get height() {
-    return this.height;
-  }
-  get email() {
-    return this.email;
-  }
-  get location() {
-    return this.location;
-  }
-
-  askForWetSuit() {
-    return deLong.chooseWetSuit(this.height);
-  }
-}
 
 let deLong = {
   nickName: 'deLong',
@@ -195,14 +156,18 @@ console.log(
 );
 
 console.log(
-  `This is test for retrieving wetsuit size of ${preet.nickName} and we expect L. Preets size ${preet.askForWetSuit()}`
+  `This is test for retrieving wetsuit size of ${preet.nickName} and we expect L. Preets size ${preet.askForWetSuit(
+    deLong
+  )}`
 );
 
 console.log(
-  `This is test for retrieving wetsuit size of ${
-    ingrid.nickName
-  } and we expect S. Ingrids size ${ingrid.askForWetSuit()}`
+  `This is test for retrieving wetsuit size of ${ingrid.nickName} and we expect S. Ingrids size ${ingrid.askForWetSuit(
+    deLong
+  )}`
 );
 console.log(
-  `This is test for retrieving wetsuit size of ${alex.nickName} and we expect XL. Alexs size ${alex.askForWetSuit()}`
+  `This is test for retrieving wetsuit size of ${alex.nickName} and we expect XL. Alexs size ${alex.askForWetSuit(
+    deLong
+  )}`
 );

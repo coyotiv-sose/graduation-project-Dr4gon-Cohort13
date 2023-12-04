@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon src/jsOOPlecture.js",
     "eslint:check": "npx eslint .",
     "eslint:fix": "npx eslint --fix .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +19,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "pluralize": "^8.0.0"
   }
 }

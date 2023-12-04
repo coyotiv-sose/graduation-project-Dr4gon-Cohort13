@@ -1,5 +1,6 @@
 const Person = require('./person.js');
 const EquipmentBoard = require('./equipmentBoard.js');
+const Pluralize = require('pluralize');
 
 console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍♂️🏄🏾‍♀️');
 // how to join Academy?
@@ -193,6 +194,25 @@ console.log('1 person is should be surfing on eisbach wave ' + eisbach.attendanc
 
 flosslaende.attendances.push('Delong', 'Alex');
 console.log('Add two person to flosslaende wave to surf ' + flosslaende.attendances);
+
+// pluralize('test', 1, true) //=> "1 test"
+// const test = Pluralize('test', 1);
+// console.log(test);
 console.log(
-  'There should be two people on flosslaende wave now. There ARE: ' + flosslaende.attendances.length + ' surfers.'
+  'There should be two people on flosslaende wave now. There ARE: ' +
+    Pluralize('surfer', flosslaende.attendances.length, true)
+);
+
+flosslaende.attendances.pop();
+
+console.log(
+  'There should be 1 people on flosslaende wave now. There ARE: ' +
+    Pluralize('surfer', flosslaende.attendances.length, true)
+);
+
+flosslaende.attendances.push('Preet', 'Ingrid', 'Gulistan', 'Delong', 'Alex');
+
+console.log(
+  'There should be 6 people on flosslaende wave now. There ARE: ' +
+    Pluralize('surfer', flosslaende.attendances.length, true)
 );

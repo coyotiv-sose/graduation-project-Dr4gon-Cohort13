@@ -177,7 +177,9 @@ console.log(
 );
 
 console.log(`------------------------------ Equipment Board Tests -------------------------------------------------`);
+console.log('Verify that Tuna is created: ' + tuna.info);
 console.log('Verify that Tuna board is from brand Wuux: ' + tuna.brand);
 console.log('Verify that Tun has 4.5 length: ' + tuna.length);
+console.log('Verify that Fingerling is created: ' + fingerling.info);
 console.log('Verify that Fingerling is a hard top board: ' + fingerling.type);
 console.log('Verify that Fingerling is named Shark model: ' + fingerling.modelName);

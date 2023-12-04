@@ -23,6 +23,10 @@ class EquipmentBoard {
   get type() {
     return this.type;
   }
+
+  get info() {
+    return `The board ${this.modelName} from ${this.brand} is ${this.length} long and is a ${this.type} board`;
+  }
 }
 
 module.exports = EquipmentBoard;

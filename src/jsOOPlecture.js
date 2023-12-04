@@ -133,6 +133,7 @@ const eisbach = {
   community: 'arrogant',
   openingHours: '24/7',
   price: 0,
+  attendances: [],
 };
 
 const floßlaende = {
@@ -141,6 +142,7 @@ const floßlaende = {
   community: 'friendly',
   openingHours: '6AM-18PM',
   price: 0,
+  attendances: [],
 };
 
 // User flow
@@ -183,3 +185,10 @@ console.log('Verify that Tun has 4.5 length: ' + tuna.length);
 console.log('Verify that Fingerling is created: ' + fingerling.info);
 console.log('Verify that Fingerling is a hard top board: ' + fingerling.type);
 console.log('Verify that Fingerling is named Shark model: ' + fingerling.modelName);
+
+console.log(`------------------------------ Wave attandences -------------------------------------------------`);
+eisbach.attendances.push('Gulistan');
+console.log('Add a person to eisbach wave to surf ' + eisbach.attendances);
+
+floßlaende.attendances.push('Delong', 'Alex');
+console.log('Add two person to floßlaende wave to surf ' + floßlaende.attendances);

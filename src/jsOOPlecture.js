@@ -136,7 +136,7 @@ const eisbach = {
   attendances: [],
 };
 
-const floßlaende = {
+const flosslaende = {
   location: 'Munich',
   level: ['beginner', 'advanced'],
   community: 'friendly',
@@ -191,8 +191,8 @@ eisbach.attendances.push('Gulistan');
 console.log('Add a person to eisbach wave to surf ' + eisbach.attendances);
 console.log('1 person is should be surfing on eisbach wave ' + eisbach.attendances.length + ' surfer');
 
-floßlaende.attendances.push('Delong', 'Alex');
-console.log('Add two person to floßlaende wave to surf ' + floßlaende.attendances);
+flosslaende.attendances.push('Delong', 'Alex');
+console.log('Add two person to flosslaende wave to surf ' + flosslaende.attendances);
 console.log(
-  'There should be two people on floßlaende wave now. There ARE: ' + floßlaende.attendances.length + ' surfers.'
+  'There should be two people on flosslaende wave now. There ARE: ' + flosslaende.attendances.length + ' surfers.'
 );

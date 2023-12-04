@@ -1,4 +1,5 @@
 const Person = require('./person.js');
+const EquipmentBoard = require('./equipmentBoard.js');
 
 console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍♂️🏄🏾‍♀️');
 // how to join Academy?
@@ -106,6 +107,9 @@ const board = {
   length: [4.1, 5.0, 5.3, 5.4],
   type: ['soft', 'hard'],
 };
+
+const tuna = new EquipmentBoard('Tuna', 'Wuux', 4.5, 'soft');
+const fingerling = new EquipmentBoard('Shark', 'Speedo', 5.0, 'hard');
 
 // levels
 // beginner => to be able to stand on a board

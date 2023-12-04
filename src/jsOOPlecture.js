@@ -189,6 +189,10 @@ console.log('Verify that Fingerling is named Shark model: ' + fingerling.modelNa
 console.log(`------------------------------ Wave attandences -------------------------------------------------`);
 eisbach.attendances.push('Gulistan');
 console.log('Add a person to eisbach wave to surf ' + eisbach.attendances);
+console.log('1 person is should be surfing on eisbach wave ' + eisbach.attendances.length + ' surfer');
 
 floßlaende.attendances.push('Delong', 'Alex');
 console.log('Add two person to floßlaende wave to surf ' + floßlaende.attendances);
+console.log(
+  'There should be two people on floßlaende wave now. There ARE: ' + floßlaende.attendances.length + ' surfers.'
+);

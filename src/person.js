@@ -2,6 +2,7 @@ class Person {
   nickName;
   name;
   age;
+  threeEyes;
   height;
   email;
   location; // A composition: A person needs a location

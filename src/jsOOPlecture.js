@@ -1,6 +1,7 @@
 const Person = require('./person.js');
 const EquipmentBoard = require('./equipmentBoard.js');
 const Pluralize = require('pluralize');
+const DeLong = require('./delong.js');
 
 console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍♂️🏄🏾‍♀️');
 // how to join Academy?
@@ -14,26 +15,31 @@ console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍�
 // User profile/login
 // User fills form with nickname, name , weight, birth date, height, email, location to register
 
-let deLong = {
-  nickName: 'deLong',
-  name: 'deLong',
-  age: 36,
-  height: 1.78,
-  weight: 70,
-  birthDate: '1987-07-28',
-  email: 'delong@delonghi.de',
-  location: ['Munich'],
-  chooseWetSuit: function (height) {
-    if (height <= 1.5) return 'S';
-    if (1.5 < height && height < 1.75) return 'M';
-    if (1.75 <= height && height < 1.9) return 'L';
-    else return 'XL';
-  },
-};
+// let deLong = {
+//   nickName: 'deLong',
+//   name: 'deLong',
+//   age: 36,
+//   height: 1.78,
+//   weight: 70,
+//   birthDate: '1987-07-28',
+//   email: 'delong@delonghi.de',
+//   location: ['Munich'],
+//   chooseWetSuit: function (height) {
+//     if (height <= 1.5) return 'S';
+//     if (1.5 < height && height < 1.75) return 'M';
+//     if (1.75 <= height && height < 1.9) return 'L';
+//     else return 'XL';
+//   },
+// };
 
 let preet = new Person('Preet', 'Gupreet', 33, 1.78, 80, '1990-12-06', 'preet@gopro.com', ['Munich', 'Hannover']);
 let ingrid = new Person('Ingrid', 'Ingrid', 90, 1.4, 174, '1933-12-24', 'ingrid@christmas.miracle', ['Berlin']);
 let alex = new Person('Alex', 'Alex', 15, 1.9, 60, '2008-12-24', 'alexaa@christmas.miracle', ['Bad Homburg']);
+
+let delong = new DeLong('deLong', 'deLong', 36, 1.78, 70, '1987-07-28', 'delong@person.de', ['Munich']);
+
+delong.threeEyes;
+alex.threeEyes;
 
 /* {
   nickName: 'Alex',
@@ -160,23 +166,23 @@ const flosslaende = {
 console.log(`------------------------------ Wetsuite Tests -------------------------------------------------`);
 
 console.log(
-  `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${deLong.chooseWetSuit(1.6)}`
+  `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${delong.chooseWetSuit(1.6)}`
 );
 
 console.log(
   `This is test for retrieving wetsuit size of ${preet.nickName} and we expect L. Preets size ${preet.askForWetSuit(
-    deLong
+    delong
   )}`
 );
 
 console.log(
   `This is test for retrieving wetsuit size of ${ingrid.nickName} and we expect S. Ingrids size ${ingrid.askForWetSuit(
-    deLong
+    delong
   )}`
 );
 console.log(
   `This is test for retrieving wetsuit size of ${alex.nickName} and we expect XL. Alexs size ${alex.askForWetSuit(
-    deLong
+    delong
   )}`
 );
 

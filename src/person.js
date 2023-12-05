@@ -4,7 +4,10 @@ class Person {
   age;
   height;
   email;
-  location;
+  location; // A composition: A person needs a location
+  heart; // A composition: A person needs a heart
+  eyesight; // Aggregation: A person has eyesight
+  partner; // Association: A person may have a partner, but doesn't need one to live
 
   constructor(nickName, name, age, height, email, location) {
     this.nickName = nickName;

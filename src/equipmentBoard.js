@@ -1,10 +1,10 @@
 class EquipmentBoard {
-  modelName;
+  modelName; // This would a class and it's a composition: An equipment boards needs a model name
   brand;
   length;
   type;
-  _internalTypeOfMaterial;
-  #core;
+  _internalTypeOfMaterial; // Association - loosely coupled and independent: An equipment board knows internal material
+  #core = 'awdad'; // Aggregation - coupled and dependent: An equipment board has a core
 
   constructor(modelName, brand, length, type) {
     this.modelName = modelName;

@@ -110,6 +110,7 @@ const board = {
 };
 
 const tuna = new EquipmentBoard('Tuna', 'Wuux', 4.5, 'soft');
+tuna._internalTypeOfMaterial = 'foam';
 const fingerling = new EquipmentBoard('Shark', 'Speedo', 5.0, 'hard');
 
 // levels
@@ -216,3 +217,6 @@ console.log(
   'There should be 6 people on flosslaende wave now. There ARE: ' +
     Pluralize('surfer', flosslaende.attendances.length, true)
 );
+
+var arr = ['Cat', 'Apple', 'Banana', 'Dog'];
+console.log(arr.toSorted());

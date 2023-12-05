@@ -3,12 +3,15 @@ class EquipmentBoard {
   brand;
   length;
   type;
+  _internalTypeOfMaterial;
+  #core;
 
   constructor(modelName, brand, length, type) {
     this.modelName = modelName;
     this.brand = brand;
     this.length = length;
     this.type = type;
+    this.#core = 'awdad';
   }
 
   get modelName() {

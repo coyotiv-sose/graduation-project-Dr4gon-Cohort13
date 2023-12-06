@@ -38,6 +38,7 @@ let ingrid = new Person('Ingrid', 'Ingrid', 90, 1.4, 174, '1933-12-24', 'ingrid@
 let alex = new Person('Alex', 'Alex', 15, 1.9, 60, '2008-12-24', 'alexaa@christmas.miracle', ['Bad Homburg']);
 
 let delong = new DeLong('deLong', 'deLong', 36, 1.78, 70, '1987-07-28', 'delong@person.de', ['Munich']);
+console.log('De Long has been to: ' + delong.location);
 
 delong.threeEyes;
 alex.threeEyes;

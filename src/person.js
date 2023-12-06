@@ -3,6 +3,7 @@ class Person {
   name;
   age;
   threeEyes;
+  birthdate;
   height;
   email;
   location; // A composition: A person needs a location
@@ -10,13 +11,15 @@ class Person {
   eyesight; // Aggregation: A person has eyesight
   partner; // Association: A person may have a partner, but doesn't need one to live
 
-  constructor(nickName, name, age, height, email, location) {
+  constructor(nickName, name, age, height, weight, birthdate, email, location) {
     this.nickName = nickName;
     this.name = name;
     this.age = age;
     this.height = height;
+    this.birthdate = birthdate;
     this.email = email;
     this.location = location;
+    this.weight = weight;
   }
 
   get nickName() {

@@ -33,11 +33,11 @@ console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍�
 //   },
 // };
 
-let preet = new Person('Preet', 'Gupreet', 33, 1.78, 80, '1990-12-06', 'preet@gopro.com', ['Munich', 'Hannover']);
-let ingrid = new Person('Ingrid', 'Ingrid', 90, 1.4, 174, '1933-12-24', 'ingrid@christmas.miracle', ['Berlin']);
-let alex = new Person('Alex', 'Alex', 15, 1.9, 60, '2008-12-24', 'alexaa@christmas.miracle', ['Bad Homburg']);
+let preet = new Person('Preet', 'Gupreet', 33, 1.78, 80, '1990-12-06', 'preet@gopro.com', 'Hamburg');
+let ingrid = new Person('Ingrid', 'Ingrid', 90, 1.4, 174, '1933-12-24', 'ingrid@christmas.miracle', 'Berlin');
+let alex = new Person('Alex', 'Alex', 15, 1.9, 60, '2008-12-24', 'alexaa@christmas.miracle', 'Bad Homburg');
 
-let delong = new DeLong('deLong', 'deLong', 36, 1.78, 70, '1987-07-28', 'delong@person.de', ['Munich']);
+let delong = new DeLong('deLong', 'deLong', 36, 1.78, 70, '1987-07-28', 'delong@person.de', 'Munich');
 console.log('De Long has been to: ' + delong.location);
 
 delong.threeEyes;

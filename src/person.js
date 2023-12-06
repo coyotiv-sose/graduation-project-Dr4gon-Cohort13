@@ -18,7 +18,23 @@ class Person {
     this.height = height;
     this.birthdate = birthdate;
     this.email = email;
-    this.location = location;
+    // Robustness principle
+    // Goal: Whatever input a user gives, the program should not crash
+    // HowTo: The software craftperson makes sure to handle even unexpected input
+    // Important criteria: Edge cases, and very stupid cases such as empty
+    // --------------------------------------------------------------------------
+    // console.log(location);
+    // console.log(typeof 'Munich' === 'string');
+    if (location === undefined || location === '') {
+      throw new Error('Location must be set');
+    }
+
+    if (typeof location === 'string') {
+      this.location = [location];
+    } else {
+      throw Error('Location must be a string');
+    }
+
     this.weight = weight;
   }
 

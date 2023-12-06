@@ -2,6 +2,7 @@ const Person = require('./person.js');
 const EquipmentBoard = require('./equipmentBoard.js');
 const Pluralize = require('pluralize');
 const DeLong = require('./delong.js');
+const WetSuiteMachine = require('./wetSuiteMachine.js');
 
 console.log('Namaste students, warm welcome to my riversurf academy 🏄🏾‍♂️🏄🏾‍♀️');
 // how to join Academy?
@@ -166,7 +167,9 @@ const flosslaende = {
 console.log(`------------------------------ Wetsuite Tests -------------------------------------------------`);
 
 console.log(
-  `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${delong.chooseWetSuit(1.6)}`
+  `This is test is supposed to give back the size M for the wetsuite. Actually it does: ${WetSuiteMachine.chooseWetSuit(
+    1.6
+  )}`
 );
 
 console.log(

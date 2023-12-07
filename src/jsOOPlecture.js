@@ -232,3 +232,4 @@ var arr = ['Cat', 'Apple', 'Banana', 'Dog'];
 console.log(arr.toSorted());
 
 console.log('This is to show Verónica how to use git and stash');
+console.log('Theory: Amends only work on non pushed changes.');

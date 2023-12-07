@@ -233,3 +233,4 @@ console.log(arr.toSorted());
 
 console.log('This is to show Verónica how to use git and stash');
 console.log('Theory: Amends only work on non pushed changes.');
+console.log('Alex Theory: Amends need force push, if done after push.');

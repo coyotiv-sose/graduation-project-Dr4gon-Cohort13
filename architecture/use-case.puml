@@ -1,0 +1,23 @@
+@startuml Digdem VOLFXTradingPlatform
+
+skinparam actorStyle awesome
+
+left to right direction
+actor "Ingrid" as Customer
+rectangle Client Wireframe {
+  usecase "to log in the Platform and save some settings" as UC1
+  usecase "to buy/ sell fx products" as UC2
+  usecase "to observe rates and volatility" as UC3
+}
+Customer --> UC1
+Customer --> UC2
+Customer --> UC3
+
+"PlatformTrader" as PlatformTrader
+PlatformTrader --> (manage Hedge activities)
+
+
+"PlatformTrader" as PlatformTrader
+PlatformTrader --> ( report open Positions and when necessary send Alerts to the people who may concern)
+
+@enduml

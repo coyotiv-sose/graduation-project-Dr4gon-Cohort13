@@ -1,6 +1,28 @@
-@startuml Person 
+@startuml AlexHousingPlatform
+skinparam actorStyle awesome
+
 class Person {
-  name: string
-  age: number
+  String firstName
+  String lastName
+  Date birthDate
+  User loggedInUser
+
+  constructor(firstName, lastName, birthDate)
+  ArrayList : size()
 }
+
+class User {
+  String password
+  String username
+  Boolean loggedIn
+}
+
+Person --* User
+
+class Server{
+  boolean login(String username, String password)
+}
+
+User - Server : login >
+
 @enduml

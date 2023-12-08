@@ -1,0 +1,20 @@
+@startuml
+
+State1 : Frustrated
+State2 : Overwhelmed
+State3 : Annoyed
+State4 : Confused
+State5 : Curious
+State6 : Excited
+State7 : Happy (End of course)
+
+[*] --> State1
+State1 -> State2
+State2 -> State3
+State3 -> State4
+State4 -> State5
+State5 -> State6
+State6 -> State7
+State7 --> [*]
+
+@enduml

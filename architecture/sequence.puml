@@ -1,0 +1,9 @@
+@startuml CancerDetection App
+User -> App: username and password
+App -> Server: Check if username and password is correct
+
+... Searching database for username and password ...
+
+Server -> App: Confirm User Details Exist
+App --> User: log in Confirmed
+@enduml

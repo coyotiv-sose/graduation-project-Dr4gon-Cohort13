@@ -1,5 +1,14 @@
 @startuml CancerDetection App
-User -> App: username and password
+User -> App: Register as a user
+App -> User: Case Sensitive Validated
+App -> Server: UserName is Available
+
+... Searching database for username available ...
+
+Server -> App: Available
+App -> User: Username is Registered
+User -> App: login with new Credentials
+
 App -> Server: Check if username and password is correct
 
 ... Searching database for username and password ...

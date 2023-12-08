@@ -1,0 +1,16 @@
+@startuml SiDoctor
+start
+
+if (patient knows doctors name) then (yes)
+  :write name as input;
+  :selects a doctor name;
+else (no)
+  :write specialization as input;
+  :the patient selects what the search is suggesting;
+  :the patient selects the location;
+endif
+:the patient selects the appointment he wants from the doctors agendas;
+:the patient books the appintment;
+:the doctor and patient receive a confirmation with the appointment;
+stop
+@enduml

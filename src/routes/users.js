@@ -3,7 +3,12 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.send('This is a get response');
+  res.send({
+    users: [
+      { name: 'John Doe', email: 'john@doe.com' },
+      { name: 'Jane Doe', email: 'jane@doe.com' },
+    ],
+  });
 });
 
 router.put('/', function (req, res, next) {

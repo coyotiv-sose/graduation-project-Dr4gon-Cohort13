@@ -9,7 +9,10 @@ const client = Axios.create({
 async function getUsers() {
   try {
     const response = await client.get('/users');
-    console.log(response.data);
+    let users = response.data.users;
+    // console.log(users);
+    let emails = users.map(user => user.email);
+    console.log(emails);
   } catch (error) {
     console.error(error);
   }

@@ -8,7 +8,7 @@ const client = Axios.create({
 
 async function getUsers() {
   try {
-    const response = await client.get('/users');
+    const response = await client.delete('/users');
     console.log(response);
   } catch (error) {
     console.error(error);

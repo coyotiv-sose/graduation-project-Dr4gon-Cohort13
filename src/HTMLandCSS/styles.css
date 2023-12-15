@@ -1,5 +1,14 @@
 h1 {
   color: #aaff00d4;
+  background-color: brown;
+}
+
+.input {
+  color: #aaff00d4;
+  background-color: black;
+  border: 1px solid #aaff00d4;
+  border-radius: 4px;
+  padding: 0.5rem;
 }
 
 body {

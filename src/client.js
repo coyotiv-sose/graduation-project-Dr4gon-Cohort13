@@ -26,6 +26,10 @@ class Client {
       console.error(error);
     }
   }
+
+  static respond() {
+    return 'This is an answer from client';
+  }
 }
 
 module.exports = Client;

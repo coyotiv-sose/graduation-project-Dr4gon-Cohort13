@@ -7,7 +7,5 @@ const client = require('./client');
 console.log('Sync communication is starting');
 console.log('Hi, I am the client');
 console.log('I am waiting for the server to answer');
-setTimeout(() => {
-  console.log('Async response from the server');
-}, 10000);
+console.log(client.respond());
 console.log('Sync communication is over');

@@ -28,7 +28,11 @@ class Client {
   }
 
   static async respond() {
-    return 'This is an answer from client';
+    let response;
+    setTimeout(() => {
+      console.log('Async response from the server');
+    }, 10000);
+    return response;
   }
 }
 

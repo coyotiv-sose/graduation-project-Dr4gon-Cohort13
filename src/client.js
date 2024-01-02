@@ -27,7 +27,7 @@ class Client {
     }
   }
 
-  static respond() {
+  static async respond() {
     return 'This is an answer from client';
   }
 }

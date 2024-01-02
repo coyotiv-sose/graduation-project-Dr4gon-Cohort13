@@ -28,11 +28,7 @@ class Client {
   }
 
   static async respond() {
-    let response;
-    setTimeout(() => {
-      console.log('Async response from the server');
-    }, 10000);
-    return response;
+    return new Promise(resolve => setTimeout(resolve, 10000, 'Async communication is over'));
   }
 }
 

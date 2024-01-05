@@ -1,16 +1,22 @@
-const client = require('./client');
+doctorList = [
+  { doctorName: 'Peter', type: 'Chiropracter' }, // new Doctor('Peter', 'Chiropracter')
+  { doctorName: 'Sam', type: 'Osteopath' }, // new Doctor('Sam', 'Osteopath')
+]; // array of doctors
 
-// client.connect();
-// const users = client.getUsers();
-// console.log('Send mail to; ', users[0].email);
+console.log(doctorList.doctorName);
 
-console.log('Sync communication is starting');
-console.log('Hi, I am the client');
-console.log('I am waiting for the server to answer');
-console.log(
-  client
-    .respond()
-    .catch(error => console.error(error))
-    .then(response => console.log(response))
-);
-console.log('Sync communication is over');
+// To search a doctor with a name
+// Go through the list of doctors
+function searchDoctor(name) {
+  for (let i = 0; i < doctorList.length; i++) {
+    // Compare my search name "Sam" with the doctor's name
+    if (doctorList[i].doctorName === name) {
+      console.log('I found the doctor ' + name);
+      // If the names are the same, return the doctor
+      return doctorList[i];
+    }
+  }
+}
+
+console.log('Show result of search1:' + searchDoctor('Sam').doctorName);
+console.log('Show result of search2:' + searchDoctor('Peter').doctorName);

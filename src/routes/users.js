@@ -3,13 +3,14 @@ var router = express.Router();
 const Person = require('../person');
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send({
-    users: [
-      { name: 'John Doe', email: 'john@doe.com' },
-      { name: 'Jane Doe', email: 'jane@doe.com' },
-    ],
-  });
+router.get('/', async function (req, res, next) {
+  const dbUsers = await Person.find();
+  console.log('Backend retrieval of users: ', dbUsers);
+  const users = dbUsers.map(user => ({
+    nickName: user.nickName,
+    email: user.email,
+  }));
+  res.send(users);
 });
 
 router.put('/', function (req, res, next) {

@@ -13,7 +13,7 @@ class Client {
   static async getUsers() {
     try {
       const response = await this.client.get('/users');
-      let users = response.data.users;
+      let users = response.data;
       console.log('Client service retrieval from backend: ', users);
       return users;
     } catch (error) {

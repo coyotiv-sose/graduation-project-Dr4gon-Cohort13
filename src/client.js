@@ -29,6 +29,12 @@ class Client {
 
     return response.data;
   }
+
+  static async deleteUser() {
+    const response = await this.client.delete('/users/Johnny');
+
+    return response.data;
+  }
 }
 
 module.exports = Client;

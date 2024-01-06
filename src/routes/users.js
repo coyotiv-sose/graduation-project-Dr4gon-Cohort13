@@ -17,13 +17,15 @@ router.put('/', function (req, res, next) {
   res.send('This is a put response');
 });
 
-router.post('/', function (req, res, next) {
-  Person.create({ nickName: req.body.nickName, email: req.body.email });
+router.post('/', async function (req, res, next) {
+  await Person.create({ nickName: req.body.nickName, email: req.body.email });
   res.sendStatus(200);
 });
 
-router.delete('/', function (req, res, next) {
-  res.send('This is a delete response');
+router.delete('/:nickName', async function (req, res, next) {
+  console.log('Backend deletion of users:', req.params.nickName);
+  await Person.findOneAndDelete({ nickName: req.params.nickName });
+  res.sendStatus(200);
 });
 
 module.exports = router;

@@ -15,11 +15,6 @@ class Client {
       const response = await this.client.get('/users');
       let users = response.data.users;
       console.log('Client service retrieval from backend: ', users);
-      let emails = users.map(user => user.email);
-
-      const johnInfos = users[0];
-      let john = new Person('Johnny', johnInfos.name, 42, 1.8, 80, '14-12-2023', johnInfos.email, 'Munich');
-      console.log('Client service transformation from backend: ', john);
       return users;
     } catch (error) {
       console.error(error);
@@ -28,7 +23,7 @@ class Client {
 
   static async postUser() {
     const response = await this.client.post('/users', {
-      name: 'Johnny',
+      nickName: 'Johnny',
       email: 'john@doe.com',
     });
 

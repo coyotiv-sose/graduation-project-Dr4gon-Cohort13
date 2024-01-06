@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const Person = require('../person');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -16,15 +17,8 @@ router.put('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-  const mongoose = require('mongoose');
-  mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
-
-  const Cat = mongoose.model('Cat', { name: String });
-
-  const kitty = new Cat({ name: 'Zildjian' });
-  kitty.save().then(() => console.log('meow'));
-
-  res.send('This is a post response');
+  Person.create({ nickName: req.body.nickName, email: req.body.email });
+  res.sendStatus(200);
 });
 
 router.delete('/', function (req, res, next) {

@@ -25,6 +25,15 @@ class Client {
       console.error(error);
     }
   }
+
+  static async postUser() {
+    const response = await this.client.post('/users', {
+      name: 'Johnny',
+      email: 'john@doe.com',
+    });
+
+    return response.data;
+  }
 }
 
 module.exports = Client;

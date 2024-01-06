@@ -16,6 +16,14 @@ router.put('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
+  const mongoose = require('mongoose');
+  mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
+
+  const Cat = mongoose.model('Cat', { name: String });
+
+  const kitty = new Cat({ name: 'Zildjian' });
+  kitty.save().then(() => console.log('meow'));
+
   res.send('This is a post response');
 });
 

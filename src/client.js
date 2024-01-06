@@ -14,7 +14,7 @@ class Client {
     try {
       const response = await this.client.get('/users');
       let users = response.data.users;
-      // console.log(users);
+      console.log(users);
       let emails = users.map(user => user.email);
       console.log(emails);
 
@@ -25,10 +25,6 @@ class Client {
     } catch (error) {
       console.error(error);
     }
-  }
-
-  static async respond() {
-    return new Promise(resolve => setTimeout(resolve, 10000, 'Async communication is over'));
   }
 }
 

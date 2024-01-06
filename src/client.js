@@ -14,13 +14,12 @@ class Client {
     try {
       const response = await this.client.get('/users');
       let users = response.data.users;
-      console.log(users);
+      console.log('Client service retrieval from backend: ', users);
       let emails = users.map(user => user.email);
-      console.log(emails);
 
       const johnInfos = users[0];
       let john = new Person('Johnny', johnInfos.name, 42, 1.8, 80, '14-12-2023', johnInfos.email, 'Munich');
-      console.log(john);
+      console.log('Client service transformation from backend: ', john);
       return users;
     } catch (error) {
       console.error(error);

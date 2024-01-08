@@ -18,7 +18,7 @@ router.put('/', function (req, res, next) {
 });
 
 router.post('/', async function (req, res, next) {
-  await Person.create({ nickName: req.body.nickName, email: req.body.email });
+  await Person.create({ nickName: req.body.nickName, email: req.body.email, height: req.body.height });
   res.sendStatus(200);
 });
 

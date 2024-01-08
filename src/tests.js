@@ -37,13 +37,13 @@ async function runTests() {
   //   },
   // };
 
-  let preet = await Person.create({ nickName: 'Preet', email: 'preet@gopro.com' });
-  let ingrid = await Person.create({ nickName: 'Ingrid', email: 'ingrid@christmas.miracle' });
-  let alex = await Person.create({ nickName: 'Alex', email: 'alexaa@christmas.miracle' });
+  let preet = await Person.create({ nickName: 'Preet', email: 'preet@gopro.com', height: 1.8 });
+  let ingrid = await Person.create({ nickName: 'Ingrid', email: 'ingrid@christmas.miracle', height: 1.4 });
+  let alex = await Person.create({ nickName: 'Alex', email: 'alexaa@christmas.miracle', height: 1.9 });
 
   console.log(preet);
 
-  let delong = await DeLong.create({ nickName: 'Dr4gon', email: 'delong@person.de' });
+  let delong = await DeLong.create({ nickName: 'Dr4gon', email: 'delong@person.de', height: 1.78 });
 
   // User can login with nickname and password
   // User can join community
@@ -183,10 +183,7 @@ async function runTests() {
   );
 
   // Clean up
-  preet.deleteOne({ nickName: 'Preet' });
-  ingrid.deleteOne({ nickName: 'Ingrid' });
-  alex.deleteOne({ nickName: 'Alex' });
-  delong.deleteOne({ nickName: 'Dr4gon' });
+  Person.deleteMany({});
 }
 
-runTests();
+runTests().then(() => console.log('All tests passed'));

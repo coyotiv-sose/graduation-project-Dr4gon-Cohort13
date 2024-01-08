@@ -25,6 +25,7 @@ class Client {
     const response = await this.client.post('/users', {
       nickName: 'Johnny',
       email: 'john@doe.com',
+      height: 1.8,
     });
 
     return response.data;

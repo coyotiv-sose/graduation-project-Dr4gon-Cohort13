@@ -5,3 +5,5 @@ services:
   backend:
     image: cicd102
     build: .
+    ports: # expose port 3000 to the outside world, so that we can actually access it
+      - 3000:3000

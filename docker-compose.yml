@@ -4,7 +4,9 @@
 services:
   backend:
     image: cicd102
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports: # expose port 3000 to the outside world, so that we can actually access it
       - 3000:3000
     environment:

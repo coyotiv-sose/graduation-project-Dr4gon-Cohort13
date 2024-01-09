@@ -8,4 +8,6 @@ services:
     ports: # expose port 3000 to the outside world, so that we can actually access it
       - 3000:3000
     environment:
-      - MONGODB_CONNECTION_STRING=mongodb+srv://dr4gon:<VERYSECRETPW>@cohort13.c9kc8z7.mongodb.net/floater?retryWrites=true&w=majority
+      - MONGODB_CONNECTION_STRING=mongodb+srv://dr4gon:<SUPERSECRET>i@cohort13.c9kc8z7.mongodb.net/floater?retryWrites=true&w=majority
+    volumes:
+      - ./src:/src

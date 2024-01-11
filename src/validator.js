@@ -12,6 +12,11 @@ class Validator {
 
     return false;
   }
+
+  messUpCodeCoverage() {
+    console.log('messUpCodeCoverage');
+    return true;
+  }
 }
 
 module.exports = Validator;

@@ -6,8 +6,14 @@ test('If the password is empty, the validation should fail', () => {
   expect(actualResult).toBe(expectedResult);
 });
 
-test('If the password is minimum 8 characters, the validation should succeed', () => {
+test('If the password greater than 8 characters, the validation should succeed', () => {
   const actualResult = Validator.validatePassword('12345678');
   const expectedResult = true;
+  expect(actualResult).toBe(expectedResult);
+});
+
+test('If the password smaller than 8 characters, the validation should fail', () => {
+  const actualResult = Validator.validatePassword('1234');
+  const expectedResult = false;
   expect(actualResult).toBe(expectedResult);
 });

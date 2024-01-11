@@ -23,3 +23,15 @@ test('The password must have * to be valid', () => {
   const expectedResult2 = true;
   expect(actualResult2).toBe(expectedResult2);
 });
+
+test('The password must have ! to be valid', () => {
+  const actualResult2 = Validator.validatePassword('123456789!');
+  const expectedResult2 = true;
+  expect(actualResult2).toBe(expectedResult2);
+});
+
+test('The password must have ? to be valid', () => {
+  const actualResult2 = Validator.validatePassword('123456789');
+  const expectedResult2 = true;
+  expect(actualResult2).toBe(expectedResult2);
+});

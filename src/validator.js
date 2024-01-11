@@ -6,6 +6,10 @@ class Validator {
       return true;
     }
 
+    if (password.includes('*')) {
+      return true;
+    }
+
     return false;
   }
 }

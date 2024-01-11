@@ -17,3 +17,9 @@ test('If the password smaller than 8 characters, the validation should fail', ()
   const expectedResult = false;
   expect(actualResult).toBe(expectedResult);
 });
+
+test('The password must have * to be valid', () => {
+  const actualResult2 = Validator.validatePassword('123456789*');
+  const expectedResult2 = true;
+  expect(actualResult2).toBe(expectedResult2);
+});

@@ -7,7 +7,7 @@ test('If the password is empty, the validation should fail', () => {
 });
 
 test('If the password greater than 8 characters, the validation should succeed', () => {
-  const actualResult = Validator.validatePassword('12345678');
+  const actualResult = Validator.validatePassword('12*45678');
   const expectedResult = true;
   expect(actualResult).toBe(expectedResult);
 });

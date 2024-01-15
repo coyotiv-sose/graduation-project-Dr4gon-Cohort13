@@ -2,8 +2,6 @@
 import axios from 'axios'
 
 const { data: users } = await axios.get('http://localhost:3000/users')
-
-console.log(users)
 </script>
 
 <template>
@@ -15,12 +13,19 @@ console.log(users)
       <h3>
         <slot name="heading"></slot>
       </h3>
+      <ul>
+        <li v-for="user in users" :key="user.id">{{ user.nickName }} with {{ user.email }}</li>
+      </ul>
       <slot></slot>
     </div>
   </div>
 </template>
 
 <style scoped>
+li {
+  color: aquamarine;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .item {
   margin-top: 2rem;
   display: flex;

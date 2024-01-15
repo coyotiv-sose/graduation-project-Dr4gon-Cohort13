@@ -1,3 +1,11 @@
+<script setup>
+import axios from 'axios'
+
+const { data: users } = await axios.get('http://localhost:3000/users')
+
+console.log(users)
+</script>
+
 <template>
   <div class="item">
     <i>

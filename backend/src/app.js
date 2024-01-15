@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var boardsRouter = require('./routes/boards.js');
+const cors = require('cors');
 
 require('dotenv').config();
 require('./database-connection.js');
@@ -15,6 +16,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());

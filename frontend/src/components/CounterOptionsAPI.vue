@@ -18,6 +18,11 @@ export default {
     increment() {
       this.count++
     }
+  },
+  watch: {
+    count(val, oldVal) {
+      console.log(`new: ${val}, old: ${oldVal}`)
+    }
   }
 }
 </script>

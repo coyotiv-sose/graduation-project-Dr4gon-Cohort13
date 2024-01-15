@@ -17,11 +17,18 @@ export default {
     },
     increment() {
       this.count++
+      console.log('Shout out my name' + this.name)
     }
   },
   watch: {
     count(val, oldVal) {
       console.log(`new: ${val}, old: ${oldVal}`)
+    }
+  },
+  props: {
+    name: {
+      type: String,
+      required: true
     }
   }
 }

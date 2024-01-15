@@ -1,5 +1,6 @@
 <script setup>
 import axios from 'axios'
+import CounterOptionsAPI from './CounterOptionsAPI.vue'
 
 // for (let i = 0; i < 100000; i++) {
 //   console.log(i)
@@ -17,9 +18,13 @@ const { data: users } = await axios.get('http://localhost:3000/users')
       <h3>
         <slot name="heading"></slot>
       </h3>
+
+      <CounterOptionsAPI name="Sebastian" />
+
       <ul>
         <li v-for="user in users" :key="user.id">{{ user.nickName }} with {{ user.email }}</li>
       </ul>
+
       <slot></slot>
     </div>
   </div>

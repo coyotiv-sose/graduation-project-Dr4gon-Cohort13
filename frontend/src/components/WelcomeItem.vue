@@ -1,6 +1,10 @@
 <script setup>
 import axios from 'axios'
 
+// for (let i = 0; i < 100000; i++) {
+//   console.log(i)
+// }
+
 const { data: users } = await axios.get('http://localhost:3000/users')
 </script>
 

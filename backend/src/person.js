@@ -5,10 +5,6 @@ const personSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
   height: {
     type: Number,
     required: true,

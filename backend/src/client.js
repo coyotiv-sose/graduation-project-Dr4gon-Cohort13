@@ -31,6 +31,25 @@ class Client {
     return response.data;
   }
 
+  static async createAuthUser() {
+    const response = await this.client.post('/authUsers', {
+      nickName: 'Johnny',
+      email: 'john@doe.com',
+      password: '1234',
+    });
+
+    return response.data;
+  }
+
+  static async createAuthUserSession() {
+    const response = await this.client.post('/authUsers/session', {
+      email: 'john@doe.com',
+      password: '1234',
+    });
+
+    return response.data;
+  }
+
   static async deleteUser() {
     const response = await this.client.delete('/users/Johnny');
 

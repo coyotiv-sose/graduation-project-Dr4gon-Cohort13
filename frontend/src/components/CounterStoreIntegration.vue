@@ -9,9 +9,7 @@ export default {
     ...mapState(useCounterStore, ['count'])
   },
   data() {
-    return {
-      count: 0
-    }
+    return {}
   },
   methods: {
     // gives access to this.increment() inside the component

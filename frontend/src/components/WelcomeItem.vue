@@ -1,6 +1,7 @@
 <script setup>
 import axios from 'axios'
 import CounterOptionsAPI from './CounterOptionsAPI.vue'
+import CounterStoreIntegration from './CounterStoreIntegration.vue'
 
 // for (let i = 0; i < 100000; i++) {
 //   console.log(i)
@@ -24,6 +25,8 @@ const { data: users } = await axios.get('http://localhost:3000/users')
       <ul>
         <li v-for="user in users" :key="user.id">{{ user.nickName }} with {{ user.email }}</li>
       </ul>
+
+      <CounterStoreIntegration />
 
       <slot></slot>
     </div>

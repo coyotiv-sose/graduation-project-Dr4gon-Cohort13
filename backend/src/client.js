@@ -1,5 +1,5 @@
 const Axios = require('axios');
-const Person = require('./person');
+const Person = require('./model/person');
 
 class Client {
   static connect() {

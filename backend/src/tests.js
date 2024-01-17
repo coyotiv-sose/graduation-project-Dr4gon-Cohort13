@@ -1,8 +1,8 @@
-const Person = require('./person.js');
-const EquipmentBoard = require('./equipmentBoard.js');
+const Person = require('./model/person.js');
+const EquipmentBoard = require('./model/equipmentBoard.js');
 const Pluralize = require('pluralize');
-const DeLong = require('./delong.js');
-const WetSuiteMachine = require('./wetSuiteMachine.js');
+const DeLong = require('./model/delong.js');
+const WetSuiteMachine = require('./model/wetSuiteMachine.js');
 
 require('dotenv').config();
 require('./database-connection.js');

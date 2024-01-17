@@ -1,4 +1,4 @@
-const Validator = require('../src/validator');
+const Validator = require('../src/model/validator');
 
 test('If the password is empty, the validation should fail', () => {
   const actualResult = Validator.validatePassword('');

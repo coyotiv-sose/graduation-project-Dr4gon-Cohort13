@@ -7,7 +7,10 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var boardsRouter = require('./routes/boards.js');
+
+// communication to the frontend
 const cors = require('cors');
+const session = require('express-session');
 
 require('dotenv').config();
 require('./database-connection.js');
@@ -18,6 +21,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(cors());
+app.use(
+  session({
+    secret: 'SuperSecureSecretNobodyKnows', // is required to enrcypt your session specifically to you like 2FA
+    // resave: false,
+    // saveUninitialized: true,
+    // cookie: { secure: false } // TODO: set to true when using https
+  })
+);
 
 app.use(logger('dev'));
 app.use(express.json());

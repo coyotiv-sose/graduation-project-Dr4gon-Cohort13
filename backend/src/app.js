@@ -27,7 +27,7 @@ app.use(
     resave: false, // Forces the session to be saved back to the session store, even if the session was never modified
     saveUninitialized: true,
     cookie: {
-      secure: process.env.ENVIRONMENT === 'production', // TODO: set to true when using https
+      secure: process.env.ENVIRONMENT === 'production',
       httpOnly: process.env.ENVIRONMENT === 'production',
       maxAge: 1000 * 60 * 60 * 24 * 14, // how long the cookie is valid in ms
     },

@@ -3,11 +3,9 @@ var router = express.Router();
 const AuthUser = require('../authUser');
 const passport = require('passport');
 
-/* GET users listing. */
-router.get('/', async function (req, res, next) {});
-
-router.put('/', function (req, res, next) {
-  res.send('This is a put response');
+router.get('/session', async function (req, res, next) {
+  console.log('The current user is', req.user);
+  res.send(req.user);
 });
 
 router.post('/', async function (req, res, next) {

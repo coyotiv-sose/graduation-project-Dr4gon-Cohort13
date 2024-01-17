@@ -1,6 +1,26 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { authenticationStore } from './stores/authentication'
+import { mapActions, mapState } from 'pinia'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld,
+    RouterLink,
+    RouterView
+  },
+  async mounted() {
+    await this.retrieveUser()
+  },
+  computed: {
+    ...mapState(authenticationStore, ['user'])
+  },
+  methods: {
+    ...mapActions(authenticationStore, ['retrieveUser'])
+  }
+}
 </script>
 
 <template>
@@ -19,7 +39,7 @@ import HelloWorld from './components/HelloWorld.vue'
       </nav>
     </div>
   </header>
-
+  <h2>Hello awdadw {{ user.data.email }}</h2>
   <RouterView />
 </template>
 

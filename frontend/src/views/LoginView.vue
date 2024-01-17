@@ -12,16 +12,24 @@ export default {
     return {
       username: '',
       password: '',
-      loginState: ''
+      user: null
     }
   },
   methods: {
     async login() {
       try {
-        const loginState = await axios.post('http://localhost:3000/authUsers/session', {
-          email: this.username,
-          password: this.password
-        })
+        const loginState = await axios.post(
+          'http://localhost:3000/authUsers/session',
+          {
+            email: this.username,
+            password: this.password
+          },
+          {
+            withCredentials: true
+          }
+        )
+
+        this.user = loginState.data
 
         console.log(loginState.data)
 

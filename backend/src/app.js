@@ -29,6 +29,7 @@ app.use(
     cookie: {
       secure: process.env.ENVIRONMENT === 'production', // TODO: set to true when using https
       httpOnly: process.env.ENVIRONMENT === 'production',
+      maxAge: 1000 * 60 * 60 * 24 * 14, // how long the cookie is valid in ms
     },
   })
 );

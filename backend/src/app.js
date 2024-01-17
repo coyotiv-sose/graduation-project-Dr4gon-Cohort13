@@ -11,6 +11,7 @@ var boardsRouter = require('./routes/boards.js');
 // communication to the frontend
 const cors = require('cors');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 require('dotenv').config();
 require('./database-connection.js');
@@ -31,6 +32,10 @@ app.use(
       httpOnly: process.env.ENVIRONMENT === 'production',
       maxAge: 1000 * 60 * 60 * 24 * 14, // how long the cookie is valid in ms
     },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_CONNECTION_STRING,
+      stringify: false,
+    }),
   })
 );
 

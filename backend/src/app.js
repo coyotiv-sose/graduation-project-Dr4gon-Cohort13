@@ -23,10 +23,13 @@ app.set('view engine', 'pug');
 app.use(cors());
 app.use(
   session({
-    secret: 'SuperSecureSecretNobodyKnows', // is required to enrcypt your session specifically to you like 2FA
-    // resave: false,
-    // saveUninitialized: true,
-    // cookie: { secure: false } // TODO: set to true when using https
+    secret: 'SuperSecureSecretNobodyKnows', // is required to enrcypt your session specifically to you like
+    resave: false, // Forces the session to be saved back to the session store, even if the session was never modified
+    saveUninitialized: true,
+    cookie: {
+      secure: process.env.ENVIRONMENT === 'production', // TODO: set to true when using https
+      httpOnly: process.env.ENVIRONMENT === 'production',
+    },
   })
 );
 

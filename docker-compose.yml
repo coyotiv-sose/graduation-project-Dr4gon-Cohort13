@@ -6,8 +6,8 @@ services:
       dockerfile: Dockerfile
     ports: # expose port 3000 to the outside world, so that we can actually access it
       - 3000:3000
-    environment:
-      - MONGODB_CONNECTION_STRING=mongodb://mongodb:27017/floater
+    env_file:
+      - ./backend/.env
     volumes:
       - ./backend/src:/app/src
 

@@ -5,7 +5,7 @@ const Person = require('../model/person');
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
   const dbUsers = await Person.find();
-  console.log('Backend retrieval of users: ', dbUsers);
+  // console.log('Backend retrieval of users: ', dbUsers);
   const users = dbUsers.map(user => ({
     nickName: user.nickName,
     email: user.email,

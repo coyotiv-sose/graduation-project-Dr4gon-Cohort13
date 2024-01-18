@@ -46,6 +46,15 @@ class Client {
 
     return newUser;
   }
+
+  static async login() {
+    const newUser = await this.client.post('http://localhost:3000/authentication/session', {
+      email: 'john@doe.com',
+      password: '1234',
+    });
+
+    return newUser;
+  }
 }
 
 module.exports = Client;

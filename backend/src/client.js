@@ -36,6 +36,16 @@ class Client {
 
     return response.data;
   }
+
+  static async createAuthUser() {
+    const newUser = await this.client.post('/authentication/newUser', {
+      email: 'john@doe.com',
+      nickName: 'Johnny',
+      password: '1234',
+    });
+
+    return newUser;
+  }
 }
 
 module.exports = Client;

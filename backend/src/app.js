@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var boardsRouter = require('./routes/boards.js');
+var authenticationRouter = require('./routes/authentication.js');
 
 // communication to the frontend
 const cors = require('cors');
@@ -19,7 +20,7 @@ require('./database-connection.js');
 var app = express();
 
 // requires the model with Passport-Local Mongoose plugged in
-const User = require('./model/person');
+const User = require('./model/authUser');
 const passport = require('passport');
 
 // view engine setup
@@ -79,6 +80,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/boards', boardsRouter);
+app.use('/authentication', authenticationRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

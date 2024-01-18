@@ -18,6 +18,10 @@ require('dotenv').config();
 require('./database-connection.js');
 var app = express();
 
+// requires the model with Passport-Local Mongoose plugged in
+const User = require('./model/person');
+const passport = require('passport');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -44,6 +48,12 @@ app.use(
   })
 );
 
+passport.use(User.createStrategy());
+
+// use static serialize and deserialize of model for passport session support
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // intercept any http request to the backend
 app.use((req, res, next) => {
   const numberOfVisits = req.session.numberOfVisits || 0;
@@ -59,6 +69,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(passport.initialize());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

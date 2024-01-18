@@ -21,7 +21,12 @@ export default {
 
       if (newUser) {
         this.user = newUser.data
-        this.status = 'Login successful'
+        const response = await axios.post('http://localhost:3000/authentication/welcome', {
+          nickName: 'Johnny',
+          date: new Date(),
+          location: 'Amsterdam'
+        })
+        this.status = response.data
       } else {
         this.user = null
         this.status = 'Login failed'

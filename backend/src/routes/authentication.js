@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const User = require('../model/authUser');
 const passport = require('passport');
-const welcomeGenerator = require('../lib/welcome-generator');
+const welcomeGenerator = require('../api/welcome-generator');
 
 router.post('/newUser', async function (req, res, next) {
   const { email, nickName, password } = req.body;

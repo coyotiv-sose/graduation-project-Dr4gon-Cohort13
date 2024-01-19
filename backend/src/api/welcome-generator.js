@@ -17,6 +17,8 @@ module.exports = async function ({ name, date, location }) {
       },
     ],
     model: 'gpt-3.5-turbo',
+    temperature: 0.2, // randomness factor 0=best match - 2 = 100% random
+    max_tokens: 1000, // max length of response
   });
 
   console.log(completion.choices[0].message);

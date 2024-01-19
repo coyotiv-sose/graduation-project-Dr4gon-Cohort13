@@ -19,6 +19,7 @@ export default {
         password: this.password
       })
 
+      // awaited
       if (newUser) {
         this.user = newUser.data
 

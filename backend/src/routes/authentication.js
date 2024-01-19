@@ -32,9 +32,9 @@ router.post('/welcome', async function (req, res) {
 
   const msg = await welcomeGenerator({ name, date, location });
 
-  // console.log('Message is: ', msg);
+  // console.log('Message is: ', msg.content);
 
-  res.send(msg);
+  res.send(msg.content);
 });
 
 module.exports = router;

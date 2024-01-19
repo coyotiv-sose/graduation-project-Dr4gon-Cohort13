@@ -21,7 +21,18 @@ export default {
 
       if (newUser) {
         this.user = newUser.data
-        this.status = 'Login successful'
+
+        console.log('User logged in: ', newUser.data.nickName)
+
+        const welcomeMsg = await axios.post('http://localhost:3000/authentication/welcome', {
+          name: newUser.data.nickName,
+          date: new Date(),
+          location: 'UK'
+        })
+
+        console.log('Message in frontend' + welcomeMsg.data)
+
+        this.status = welcomeMsg.data
       } else {
         this.user = null
         this.status = 'Login failed'

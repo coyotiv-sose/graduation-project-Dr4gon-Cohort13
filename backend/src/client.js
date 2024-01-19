@@ -5,7 +5,6 @@ class Client {
   static connect() {
     this.client = Axios.create({
       baseURL: 'http://localhost:3000',
-      timeout: 1000,
       headers: { 'X-Custom-Header': 'foobar' },
     });
   }
@@ -54,6 +53,16 @@ class Client {
     });
 
     return newUser;
+  }
+
+  static async createWelcomeMessage() {
+    const welcomeMessage = await this.client.post('http://localhost:3000/authentication/welcome', {
+      name: 'Gülistan',
+      date: '25-02-2024',
+      location: 'Berlin',
+    });
+
+    return welcomeMessage;
   }
 }
 

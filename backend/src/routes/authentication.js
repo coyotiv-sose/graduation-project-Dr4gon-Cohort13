@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const User = require('../model/authUser');
 const passport = require('passport');
+const welcomeGenerator = require('../lib/welcome-generator');
 
 router.post('/newUser', async function (req, res, next) {
   const { email, nickName, password } = req.body;
@@ -22,6 +23,18 @@ router.post('/newUser', async function (req, res, next) {
 router.post('/session', passport.authenticate('local', { failWithError: true }), function (req, res) {
   console.log('User is authenticated');
   res.send(req.user);
+});
+
+router.post('/welcome', async function (req, res) {
+  const { name, date, location } = req.body;
+
+  // console.log('Entering welcome creation');
+
+  const msg = await welcomeGenerator({ name, date, location });
+
+  // console.log('Message is: ', msg);
+
+  res.send(msg);
 });
 
 module.exports = router;

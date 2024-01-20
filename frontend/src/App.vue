@@ -21,7 +21,7 @@ export default {
     ...mapActions(authenticationStore, ['retrieveUser', 'logout']),
     async doLogout() {
       await this.logout()
-      this.$router.push('/login')
+      this.$router.push('/login') // @Digdem this is for you ;)
     }
   }
 }

@@ -15,7 +15,7 @@ export default {
     ...mapActions(authenticationStore, ['login']),
     async doLogin() {
       await this.login(this.username, this.password)
-      this.$router.push('/')
+      this.$router.push('/') // @Digdem this is for you ;)
     }
   }
 }

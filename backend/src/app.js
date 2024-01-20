@@ -71,6 +71,8 @@ app.use((req, res, next) => {
   req.session.ip = req.ip;
   req.session.userName = 'Hans';
 
+  app.get('socketio').emit('numberOfVisits', req.session.numberOfVisits);
+
   console.log('Show me my request:', req.session);
 
   next();
@@ -112,6 +114,8 @@ app.createSocketServer = function (server) {
     },
   });
 
+  app.set('socketio', io);
+
   console.log('Socket wrapper initialized');
 
   io.engine.use(sessionMiddleware);
@@ -122,8 +126,6 @@ app.createSocketServer = function (server) {
 
     const session = socket.request.session;
     console.log('Socket session', session);
-
-    socket.emit('numberOfVisits', session.numberOfVisits);
 
     socket.on('disconnect', () => {
       console.log('user disconnected');

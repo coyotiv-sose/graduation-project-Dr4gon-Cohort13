@@ -117,10 +117,10 @@ app.createSocketServer = function (server) {
     socket.on('disconnect', () => {
       console.log('user disconnected');
     });
-    socket.on('chat message', msg => {
-      console.log('message: ' + msg);
-      io.emit('chat message', msg);
-    });
+
+    setInterval(() => {
+      socket.emit('time', new Date().toTimeString().slice(0, 8));
+    }, 1000);
   });
 };
 

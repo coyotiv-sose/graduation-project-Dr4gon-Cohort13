@@ -5,7 +5,8 @@ const socket = io('http://localhost:3000')
 
 export const socketStore = defineStore('socket', {
   state: () => ({
-    connected: false
+    connected: false,
+    time: ''
   }),
   actions: {
     async init() {
@@ -17,8 +18,9 @@ export const socketStore = defineStore('socket', {
         console.log('disconnected')
         this.connected = false
       })
-      socket.on('chat message', (msg) => {
-        console.log('message: ' + msg)
+      socket.on('time', (time) => {
+        console.log('Receiving time event', time)
+        this.time = time
       })
     }
   }

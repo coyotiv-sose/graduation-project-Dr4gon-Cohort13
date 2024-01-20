@@ -1,0 +1,25 @@
+import { defineStore } from 'pinia'
+import { io } from 'socket.io-client'
+
+const socket = io('http://localhost:3000')
+
+export const socketStore = defineStore('socket', {
+  state: () => ({
+    connected: false
+  }),
+  actions: {
+    async init() {
+      socket.on('connect', () => {
+        console.log('connected')
+        this.connected = true
+      })
+      socket.on('disconnect', () => {
+        console.log('disconnected')
+        this.connected = false
+      })
+      socket.on('chat message', (msg) => {
+        console.log('message: ' + msg)
+      })
+    }
+  }
+})

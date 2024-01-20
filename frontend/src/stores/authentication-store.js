@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 
 axios.defaults.withCredentials = true // allows cookies to be sent with the request to another domain
+axios.defaults.baseURL = 'http://localhost:3000'
 
 export const authenticationStore = defineStore('authentication', {
   state: () => ({
@@ -10,7 +11,7 @@ export const authenticationStore = defineStore('authentication', {
   }),
   actions: {
     async retrieveUser() {
-      const response = await axios.get('http://localhost:3000/authentication/user')
+      const response = await axios.get('/authentication/user')
 
       if (response.data) {
         console.log('User retrieved', response.data)
@@ -20,7 +21,7 @@ export const authenticationStore = defineStore('authentication', {
       }
     },
     async login(email, password) {
-      const newUser = await axios.post('http://localhost:3000/authentication/session', {
+      const newUser = await axios.post('/authentication/session', {
         email: email,
         password: password
       })
@@ -38,7 +39,7 @@ export const authenticationStore = defineStore('authentication', {
       console.log(newUser.data)
     },
     async getWelcomeMsg(nickName) {
-      const response = await axios.post('http://localhost:3000/authentication/welcome', {
+      const response = await axios.post('/authentication/welcome', {
         name: nickName,
         date: new Date(),
         location: 'UK'

@@ -1,6 +1,6 @@
 <script>
 import { mapActions } from 'pinia'
-import { authenticationStore } from '../stores/autentication-store'
+import { authenticationStore } from '../stores/authentication-store'
 
 export default {
   name: 'LoginView',
@@ -38,3 +38,4 @@ form {
   height: 50vh;
 }
 </style>
+../stores/authentication-store

@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { mapState, mapActions } from 'pinia'
-import { authenticationStore } from './stores/autentication-store'
+import { authenticationStore } from './stores/authentication-store'
 
 export default {
   name: 'App',
@@ -106,3 +106,4 @@ nav a:first-of-type {
   }
 }
 </style>
+./stores/authentication-store

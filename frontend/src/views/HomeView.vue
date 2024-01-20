@@ -1,7 +1,7 @@
 <script>
 import CounterCompositionAPI from '@/components/CounterCompositionAPI.vue'
 import TheWelcome from '../components/TheWelcome.vue'
-import { authenticationStore } from '@/stores/autentication-store'
+import { authenticationStore } from '@/stores/authentication-store'
 import { mapState, mapActions } from 'pinia'
 
 export default {

@@ -40,7 +40,7 @@ export const authenticationStore = defineStore('authentication', {
     },
     async logout() {
       await axios.delete('/authentication/session')
-
+      this.welcomeMsg = 'Loading welcome msg...'
       this.user = null
     },
     async getWelcomeMsg(nickName) {

@@ -38,6 +38,11 @@ export const authenticationStore = defineStore('authentication', {
 
       console.log(newUser.data)
     },
+    async logout() {
+      await axios.delete('/authentication/session')
+
+      this.user = null
+    },
     async getWelcomeMsg(nickName) {
       const response = await axios.post('/authentication/welcome', {
         name: nickName,

@@ -18,7 +18,11 @@ export default {
     ...mapState(authenticationStore, ['user'])
   },
   methods: {
-    ...mapActions(authenticationStore, ['retrieveUser'])
+    ...mapActions(authenticationStore, ['retrieveUser', 'logout']),
+    async doLogout() {
+      await this.logout()
+      this.$router.push('/login')
+    }
   }
 }
 </script>
@@ -36,6 +40,7 @@ export default {
         <RouterLink v-if="user" to="/about">About</RouterLink>
         <RouterLink v-if="user" to="/test">Test</RouterLink>
         <RouterLink v-if="!user" to="/login">Login</RouterLink>
+        <button v-if="user" @click="doLogout">Logout</button>
       </nav>
     </div>
   </header>

@@ -45,4 +45,10 @@ router.post('/welcome', async function (req, res) {
   res.send(msg.content);
 });
 
+router.delete('/session', function (req, res) {
+  req.logout(() => {
+    res.sendStatus(200);
+  });
+});
+
 module.exports = router;

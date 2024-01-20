@@ -31,7 +31,13 @@ let connectionPromise = mongoose.connection
   .asPromise()
   .then(connection => (connectionPromise = connection.getClient()));
 
-app.use(cors());
+app.use(
+  cors({
+    // specific rules for security, also mandatory once u use withCredentials in the frontend
+    origin: 'http://localhost:5173',
+    credentials: true,
+  })
+);
 app.use(
   session({
     secret: 'SuperSecureSecretNobodyKnows', // is required to enrcypt your session specifically to you like

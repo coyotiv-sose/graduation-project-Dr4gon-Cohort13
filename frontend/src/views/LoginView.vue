@@ -14,10 +14,16 @@ export default {
   },
   methods: {
     async login() {
-      const newUser = await axios.post('http://localhost:3000/authentication/session', {
-        email: this.username,
-        password: this.password
-      })
+      const newUser = await axios.post(
+        'http://localhost:3000/authentication/session',
+        {
+          email: this.username,
+          password: this.password
+        },
+        {
+          withCredentials: true
+        }
+      )
 
       // awaited
       if (newUser) {
@@ -25,11 +31,17 @@ export default {
 
         console.log('User logged in: ', newUser.data.nickName)
 
-        const welcomeMsg = await axios.post('http://localhost:3000/authentication/welcome', {
-          name: newUser.data.nickName,
-          date: new Date(),
-          location: 'UK'
-        })
+        const welcomeMsg = await axios.post(
+          'http://localhost:3000/authentication/welcome',
+          {
+            name: newUser.data.nickName,
+            date: new Date(),
+            location: 'UK'
+          },
+          {
+            withCredentials: true
+          }
+        )
 
         console.log('Message in frontend' + welcomeMsg.data)
 

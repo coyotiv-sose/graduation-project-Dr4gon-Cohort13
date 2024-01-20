@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
+axios.defaults.withCredentials = true // allows cookies to be sent with the request to another domain
+
 export const authenticationStore = defineStore('authentication', {
   state: () => ({
     user: null,
@@ -8,9 +10,7 @@ export const authenticationStore = defineStore('authentication', {
   }),
   actions: {
     async retrieveUser() {
-      const response = await axios.get('http://localhost:3000/authentication/user', {
-        withCredentials: true // allows cookies to be sent with the request to another domain
-      })
+      const response = await axios.get('http://localhost:3000/authentication/user')
 
       if (response.data) {
         console.log('User retrieved', response.data)
@@ -20,16 +20,10 @@ export const authenticationStore = defineStore('authentication', {
       }
     },
     async login(email, password) {
-      const newUser = await axios.post(
-        'http://localhost:3000/authentication/session',
-        {
-          email: email,
-          password: password
-        },
-        {
-          withCredentials: true
-        }
-      )
+      const newUser = await axios.post('http://localhost:3000/authentication/session', {
+        email: email,
+        password: password
+      })
 
       // awaited
       if (newUser) {
@@ -44,17 +38,11 @@ export const authenticationStore = defineStore('authentication', {
       console.log(newUser.data)
     },
     async getWelcomeMsg(nickName) {
-      const response = await axios.post(
-        'http://localhost:3000/authentication/welcome',
-        {
-          name: nickName,
-          date: new Date(),
-          location: 'UK'
-        },
-        {
-          withCredentials: true
-        }
-      )
+      const response = await axios.post('http://localhost:3000/authentication/welcome', {
+        name: nickName,
+        date: new Date(),
+        location: 'UK'
+      })
 
       this.welcomeMsg = response.data
     }

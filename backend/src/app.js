@@ -123,6 +123,8 @@ app.createSocketServer = function (server) {
     const session = socket.request.session;
     console.log('Socket session', session);
 
+    socket.emit('numberOfVisits', session.numberOfVisits);
+
     socket.on('disconnect', () => {
       console.log('user disconnected');
     });

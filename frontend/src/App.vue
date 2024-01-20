@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     ...mapState(authenticationStore, ['user']),
-    ...mapState(socketStore, ['connected', 'time'])
+    ...mapState(socketStore, ['connected', 'time', 'numberOfVisits'])
   },
   methods: {
     ...mapActions(socketStore, ['init']),
@@ -43,6 +43,8 @@ export default {
       <label v-if="user">Socket connected: {{ connected ? 'yes' : 'no' }}</label>
       <br />
       <label v-if="user">Current time: {{ time }}</label>
+      <br />
+      <label v-if="user">Number of visits: {{ numberOfVisits }}</label>
 
       <nav>
         <RouterLink v-if="user" to="/">Home</RouterLink>

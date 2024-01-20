@@ -8,7 +8,8 @@ const socket = io('http://localhost:3000', {
 export const socketStore = defineStore('socket', {
   state: () => ({
     connected: false,
-    time: ''
+    time: '',
+    numberOfVisits: 0
   }),
   actions: {
     async init() {
@@ -23,6 +24,10 @@ export const socketStore = defineStore('socket', {
       socket.on('time', (time) => {
         console.log('Receiving time event', time)
         this.time = time
+      })
+      socket.on('numberOfVisits', (numberOfVisits) => {
+        console.log('Receiving numberOfVisits event', numberOfVisits)
+        this.numberOfVisits = numberOfVisits
       })
     }
   }

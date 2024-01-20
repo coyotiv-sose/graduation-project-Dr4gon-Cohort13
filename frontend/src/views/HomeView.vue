@@ -4,10 +4,6 @@ import { mapState, mapActions } from 'pinia'
 
 export default {
   name: 'HomeView',
-  components: {
-    CounterCompositionAPI,
-    TheWelcome
-  },
   async mounted() {
     await this.getWelcomeMsg(this.user?.nickName)
   },

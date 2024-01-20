@@ -106,4 +106,3 @@ nav a:first-of-type {
   }
 }
 </style>
-./stores/authentication-store

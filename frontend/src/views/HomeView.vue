@@ -11,7 +11,7 @@ export default {
     TheWelcome
   },
   async mounted() {
-    await this.getWelcomeMsg(this.user.nickName)
+    await this.getWelcomeMsg(this.user?.nickName)
   },
   computed: {
     ...mapState(authenticationStore, ['welcomeMsg', 'user'])

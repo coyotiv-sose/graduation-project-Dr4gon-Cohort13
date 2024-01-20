@@ -115,6 +115,7 @@ app.createSocketServer = function (server) {
   console.log('Socket wrapper initialized');
 
   io.engine.use(sessionMiddleware);
+  io.engine.use(passport.session());
 
   io.on('connection', socket => {
     console.log('a user connected');

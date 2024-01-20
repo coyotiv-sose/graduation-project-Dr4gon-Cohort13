@@ -1,6 +1,26 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { mapState, mapActions } from 'pinia'
+import { authenticationStore } from './stores/autentication-store'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld,
+    RouterLink,
+    RouterView
+  },
+  async mounted() {
+    await this.retrieveUser()
+  },
+  computed: {
+    ...mapState(authenticationStore, ['user'])
+  },
+  methods: {
+    ...mapActions(authenticationStore, ['retrieveUser'])
+  }
+}
 </script>
 
 <template>
@@ -10,11 +30,12 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
+      <label v-if="user">Logged in as {{ user.nickName }}</label>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/test">Test</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
+        <RouterLink v-if="user" to="/">Home</RouterLink>
+        <RouterLink v-if="user" to="/about">About</RouterLink>
+        <RouterLink v-if="user" to="/test">Test</RouterLink>
+        <RouterLink v-if="!user" to="/login">Login</RouterLink>
       </nav>
     </div>
   </header>

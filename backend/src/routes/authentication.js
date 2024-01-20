@@ -20,8 +20,16 @@ router.post('/newUser', async function (req, res, next) {
   res.send(newUser);
 });
 
+/** Authenticates the user and bin the session to them */
 router.post('/session', passport.authenticate('local', { failWithError: true }), function (req, res) {
   console.log('User is authenticated');
+  res.send(req.user);
+});
+
+/** This retrieves the info about a user
+ * with an authenticated session cookie */
+router.get('/user', async function (req, res, next) {
+  console.log('The current user is', req.user);
   res.send(req.user);
 });
 

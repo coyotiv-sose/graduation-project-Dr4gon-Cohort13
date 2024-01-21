@@ -9,7 +9,9 @@ export const socketStore = defineStore('socket', {
   state: () => ({
     connected: false,
     time: '',
-    numberOfVisits: 0
+    numberOfVisits: 0,
+    bitcoin: 0,
+    eur: 0
   }),
   actions: {
     async init() {
@@ -28,6 +30,12 @@ export const socketStore = defineStore('socket', {
       socket.on('numberOfVisits', (numberOfVisits) => {
         console.log('Receiving numberOfVisits event', numberOfVisits)
         this.numberOfVisits = numberOfVisits
+      })
+      socket.on('bitcoin', (bitcoin) => {
+        this.bitcoin = bitcoin
+      })
+      socket.on('eur', (eur) => {
+        this.eur = eur
       })
     }
   }

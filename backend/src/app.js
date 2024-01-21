@@ -71,7 +71,12 @@ app.use((req, res, next) => {
   req.session.ip = req.ip;
   req.session.userName = 'Hans';
 
-  app.get('socketio').emit('numberOfVisits', req.session.numberOfVisits);
+  const io = app.get('socketio');
+
+  if (io && req.session && req.session.passport.user) {
+    console.log('Emitting to user', req.session.passport.user);
+    io.to(req.session.passport.user).emit('numberOfVisits', req.session.numberOfVisits);
+  }
 
   console.log('Show me my request:', req.session);
 
@@ -126,6 +131,12 @@ app.createSocketServer = function (server) {
 
     const session = socket.request.session;
     console.log('Socket session', session);
+
+    // gives each user an own socket connection bound to this room
+    if (session.passport && session.passport.user) {
+      console.log('Socket joins room', session.passport.user);
+      socket.join(session.passport.user);
+    }
 
     socket.on('disconnect', () => {
       console.log('user disconnected');

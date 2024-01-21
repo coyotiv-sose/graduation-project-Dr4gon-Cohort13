@@ -44,7 +44,7 @@ export default {
       <br />
       <label v-if="user">Current time: {{ time }}</label>
       <br />
-      <label v-if="user">Number of visits: {{ numberOfVisits }}</label>
+      <label>Number of visits: {{ numberOfVisits }}</label>
 
       <nav>
         <RouterLink v-if="user" to="/">Home</RouterLink>

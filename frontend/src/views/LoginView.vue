@@ -38,4 +38,3 @@ form {
   height: 50vh;
 }
 </style>
-../stores/authentication-store

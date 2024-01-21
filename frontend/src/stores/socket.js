@@ -11,7 +11,9 @@ export const socketStore = defineStore('socket', {
     time: '',
     numberOfVisits: 0,
     bitcoin: 0,
-    eur: 0
+    bitcoinWatched: false,
+    eur: 0,
+    eurWatched: false
   }),
   actions: {
     async init() {
@@ -40,6 +42,19 @@ export const socketStore = defineStore('socket', {
     },
     watch(stockName) {
       socket.emit('watch', stockName)
+      if (stockName === 'bitcoin') {
+        this.bitcoinWatched = true
+      } else if (stockName === 'eur') {
+        this.eurWatched = true
+      }
+    },
+    unwatch(stockName) {
+      socket.emit('unwatch', stockName)
+      if (stockName === 'bitcoin') {
+        this.bitcoinWatched = false
+      } else if (stockName === 'eur') {
+        this.eurWatched = false
+      }
     }
   }
 })

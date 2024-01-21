@@ -151,6 +151,11 @@ app.createSocketServer = function (server) {
       socket.join(stockName);
     });
 
+    socket.on('unwatch', stockName => {
+      console.log(session.passport.user + ' wants to unwatch', stockName);
+      socket.leave(stockName);
+    });
+
     setInterval(() => {
       socket.to('bitcoin').emit('bitcoin', Math.random() * 100000);
     }, 1000);

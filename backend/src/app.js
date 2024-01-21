@@ -34,7 +34,7 @@ let connectionPromise = mongoose.connection
 app.use(
   cors({
     // specific rules for security, also mandatory once u use withCredentials in the frontend
-    origin: 'http://localhost:5173',
+    origin: true,
     credentials: true,
   })
 );

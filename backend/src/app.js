@@ -146,12 +146,17 @@ app.createSocketServer = function (server) {
       socket.emit('time', new Date().toTimeString().slice(0, 8));
     }, 1000);
 
+    socket.on('watch', stockName => {
+      console.log(session.passport.user + ' wants to watch', stockName);
+      socket.join(stockName);
+    });
+
     setInterval(() => {
-      socket.emit('bitcoin', Math.random() * 10000);
+      socket.to('bitcoin').emit('bitcoin', Math.random() * 100000);
     }, 1000);
 
     setInterval(() => {
-      socket.emit('eur', Math.random() * 1);
+      socket.to('eur').emit('eur', Math.random() * 1);
     }, 1000);
   });
 };

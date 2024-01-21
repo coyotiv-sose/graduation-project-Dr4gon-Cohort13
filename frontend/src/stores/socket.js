@@ -37,6 +37,9 @@ export const socketStore = defineStore('socket', {
       socket.on('eur', (eur) => {
         this.eur = eur
       })
+    },
+    watch(stockName) {
+      socket.emit('watch', stockName)
     }
   }
 })

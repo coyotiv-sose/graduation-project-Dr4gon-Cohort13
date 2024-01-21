@@ -73,7 +73,7 @@ app.use((req, res, next) => {
 
   const io = app.get('socketio');
 
-  if (io && req.session && req.session.passport.user) {
+  if (io && req.session && req.session.passport) {
     console.log('Emitting to user', req.session.passport.user);
     io.to(req.session.passport.user).emit('numberOfVisits', req.session.numberOfVisits);
   }
@@ -144,6 +144,14 @@ app.createSocketServer = function (server) {
 
     setInterval(() => {
       socket.emit('time', new Date().toTimeString().slice(0, 8));
+    }, 1000);
+
+    setInterval(() => {
+      socket.emit('bitcoin', Math.random() * 10000);
+    }, 1000);
+
+    setInterval(() => {
+      socket.emit('eur', Math.random() * 1);
     }, 1000);
   });
 };

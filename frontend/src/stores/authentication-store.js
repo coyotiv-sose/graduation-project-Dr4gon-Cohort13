@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 
 axios.defaults.withCredentials = true // allows cookies to be sent with the request to another domain
-axios.defaults.baseURL = import.meta.env.BACKEND_URL
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
 
 export const authenticationStore = defineStore('authentication', {
   state: () => ({

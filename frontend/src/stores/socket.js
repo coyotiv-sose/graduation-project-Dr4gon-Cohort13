@@ -3,7 +3,8 @@ import { io } from 'socket.io-client'
 
 export const socketStore = defineStore('socket', {
   state: () => ({
-    connected: false
+    connected: false,
+    time: ''
   }),
   actions: {
     connect() {
@@ -19,6 +20,10 @@ export const socketStore = defineStore('socket', {
       socket.on('disconnect', () => {
         console.log('Socket disconnected')
         this.connected = false
+      })
+
+      socket.on('time', (time) => {
+        this.time = time
       })
     }
   }

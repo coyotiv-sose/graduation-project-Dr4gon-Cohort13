@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     ...mapState(authenticationStore, ['user']),
-    ...mapState(socketStore, ['connected'])
+    ...mapState(socketStore, ['connected', 'time'])
   },
   methods: {
     ...mapActions(authenticationStore, ['retrieveUser', 'logout']),
@@ -42,6 +42,8 @@ export default {
       <label v-if="user">Logged in as {{ user.nickName }}</label>
       <br />
       <label> Socket connection working: {{ connected ? 'yes' : 'no' }}</label>
+      <br />
+      <label> Current time: {{ time }}</label>
       <br />
 
       <nav>

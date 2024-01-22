@@ -10,11 +10,11 @@ export default {
   },
   computed: {
     ...mapState(authenticationStore, ['welcomeMsg', 'user']),
-    ...mapState(socketStore, ['bitcoin', 'eur'])
+    ...mapState(socketStore, ['bitcoin', 'eur', 'bitcoinWatched', 'eurWatched'])
   },
   methods: {
     ...mapActions(authenticationStore, ['getWelcomeMsg']),
-    ...mapActions(socketStore, ['watch'])
+    ...mapActions(socketStore, ['watch', 'unwatch'])
   }
 }
 </script>
@@ -23,10 +23,16 @@ export default {
   <main>
     <br />
 
-    <label>Bitcoin: {{ bitcoin }}</label> <button @click="watch('bitcoin')">watch</button>
-    <br />
-    <label>Eur: {{ eur }}</label> <button @click="watch('eur')">watch</button>
+    <label>Bitcoin: {{ bitcoin }}</label>
+    &nbsp;
+    <!-- bad practice, don't do it -->
+    <button v-if="!bitcoinWatched" @click="watch('bitcoin')">watch</button>
+    <button v-if="bitcoinWatched" @click="unwatch('bitcoin')">unwatch</button>
 
+    <label>Eur: {{ eur }}</label>
+    &nbsp;<!-- bad practice, don't do it -->
+    <button v-if="!eurWatched" @click="watch('eur')">watch</button>
+    <button v-if="eurWatched" @click="unwatch('eur')">unwatch</button>
     <br />
     <br />
 

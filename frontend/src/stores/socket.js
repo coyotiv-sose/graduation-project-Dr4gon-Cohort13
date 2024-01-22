@@ -4,7 +4,8 @@ import { io } from 'socket.io-client'
 export const socketStore = defineStore('socket', {
   state: () => ({
     connected: false,
-    time: ''
+    time: '',
+    numberOfVisits: 0
   }),
   actions: {
     connect() {
@@ -26,6 +27,10 @@ export const socketStore = defineStore('socket', {
 
       socket.on('time', (time) => {
         this.time = time
+      })
+
+      socket.on('numberOfVisits', (numberOfVisits) => {
+        this.numberOfVisits = numberOfVisits
       })
     }
   }

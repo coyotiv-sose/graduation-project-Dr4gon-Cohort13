@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     ...mapState(authenticationStore, ['user']),
-    ...mapState(socketStore, ['connected', 'time'])
+    ...mapState(socketStore, ['connected', 'time', 'numberOfVisits'])
   },
   methods: {
     ...mapActions(authenticationStore, ['retrieveUser', 'logout']),
@@ -44,6 +44,8 @@ export default {
       <label> Socket connection working: {{ connected ? 'yes' : 'no' }}</label>
       <br />
       <label> Current time: {{ time }}</label>
+      <br />
+      <label> Number of visits: {{ numberOfVisits }}</label>
       <br />
 
       <nav>

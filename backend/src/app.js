@@ -72,7 +72,11 @@ app.use((req, res, next) => {
 
   console.log('Show me my request:', req.session);
 
-  app.get('socketio').emit('numberOfVisits', req.session.numberOfVisits);
+  const io = app.get('socketio');
+
+  if (req.session.passport && req.session.passport.user) {
+    io.to(req.session.passport.user).emit('numberOfVisits', req.session.numberOfVisits);
+  }
 
   next();
 });
@@ -128,7 +132,10 @@ app.createSocketServer = function (server) {
     const session = socket.request.session;
     console.log('Socket IO specific session', session);
 
-    socket.emit('numberOfVisits', session.numberOfVisits);
+    if (session.passport && session.passport.user) {
+      socket.join(session.passport.user); // joining a specific room
+      socket.to(session.passport.user).emit('numberOfVisits', session.numberOfVisits);
+    }
 
     socket.on('disconnect', () => {
       console.log('user disconnected');

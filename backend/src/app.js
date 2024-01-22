@@ -104,6 +104,20 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+app.createSocketServer = function (server) {
+  const io = require('socket.io')(server);
+
+  console.log('Server side socket connection open');
+
+  io.on('connection', socket => {
+    console.log('a user connected');
+
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+  });
+};
+
 console.log('blubb');
 
 module.exports = app;

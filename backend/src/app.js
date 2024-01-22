@@ -137,6 +137,14 @@ app.createSocketServer = function (server) {
     setInterval(() => {
       socket.emit('time', new Date().toTimeString().slice(0, 8));
     }, 1000);
+
+    setInterval(() => {
+      socket.emit('bitcoin', Math.floor(Math.random() * 100000));
+    }, 3000);
+
+    setInterval(() => {
+      socket.emit('eur', Math.random() * 2);
+    }, 3000);
   });
 };
 

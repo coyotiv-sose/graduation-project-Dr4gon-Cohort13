@@ -72,6 +72,8 @@ app.use((req, res, next) => {
 
   console.log('Show me my request:', req.session);
 
+  app.get('socketio').emit('numberOfVisits', req.session.numberOfVisits);
+
   next();
 });
 
@@ -110,6 +112,9 @@ app.createSocketServer = function (server) {
       credentials: true,
     },
   });
+
+  // stores the io object on the app object
+  app.set('socketio', io);
 
   // app.use() only for socket.io
   io.engine.use(sessionMiddleware);

@@ -13,7 +13,8 @@ export default {
     ...mapState(socketStore, ['bitcoin', 'eur'])
   },
   methods: {
-    ...mapActions(authenticationStore, ['getWelcomeMsg'])
+    ...mapActions(authenticationStore, ['getWelcomeMsg']),
+    ...mapActions(socketStore, ['watch'])
   }
 }
 </script>
@@ -22,9 +23,9 @@ export default {
   <main>
     <br />
 
-    <label>Bitcoin: {{ bitcoin }}</label>
+    <label>Bitcoin: {{ bitcoin }}</label> <button @click="watch('bitcoin')">watch</button>
     <br />
-    <label>Eur: {{ eur }}</label>
+    <label>Eur: {{ eur }}</label> <button @click="watch('eur')">watch</button>
 
     <br />
     <br />

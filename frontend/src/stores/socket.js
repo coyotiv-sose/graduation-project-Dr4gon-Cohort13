@@ -8,7 +8,9 @@ export const socketStore = defineStore('socket', {
   }),
   actions: {
     connect() {
-      const socket = io('http://localhost:3000')
+      const socket = io('http://localhost:3000', {
+        withCredentials: true // allows cookies to be sent with the request to another domain
+      })
 
       console.log('Establishing socket connection')
 

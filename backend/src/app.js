@@ -38,22 +38,21 @@ app.use(
     credentials: true,
   })
 );
-app.use(
-  session({
-    secret: 'SuperSecureSecretNobodyKnows', // is required to enrcypt your session specifically to you like
-    resave: false, // Forces the session to be saved back to the session store, even if the session was never modified
-    saveUninitialized: true,
-    cookie: {
-      secure: process.env.ENVIRONMENT === 'production',
-      httpOnly: process.env.ENVIRONMENT === 'production',
-      maxAge: 1000 * 60 * 60 * 24 * 14, // how long the cookie is valid in ms
-    },
-    store: MongoStore.create({
-      clientPromise: connectionPromise,
-      stringify: false,
-    }),
-  })
-);
+const sessionMiddleware = session({
+  secret: 'SuperSecureSecretNobodyKnows', // is required to enrcypt your session specifically to you like
+  resave: false, // Forces the session to be saved back to the session store, even if the session was never modified
+  saveUninitialized: true,
+  cookie: {
+    secure: process.env.ENVIRONMENT === 'production',
+    httpOnly: process.env.ENVIRONMENT === 'production',
+    maxAge: 1000 * 60 * 60 * 24 * 14, // how long the cookie is valid in ms
+  },
+  store: MongoStore.create({
+    clientPromise: connectionPromise,
+    stringify: false,
+  }),
+});
+app.use(sessionMiddleware);
 
 passport.use(User.createStrategy());
 
@@ -112,10 +111,17 @@ app.createSocketServer = function (server) {
     },
   });
 
+  // app.use() only for socket.io
+  io.engine.use(sessionMiddleware);
+  io.engine.use(passport.session());
+
   console.log('Server side socket connection open');
 
   io.on('connection', socket => {
     console.log('a user connected');
+
+    const session = socket.request.session;
+    console.log('Socket IO specific session', session);
 
     socket.on('disconnect', () => {
       console.log('user disconnected');

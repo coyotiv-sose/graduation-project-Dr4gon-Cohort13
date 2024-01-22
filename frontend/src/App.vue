@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { mapState, mapActions } from 'pinia'
 import { authenticationStore } from './stores/authentication-store'
+import { socketStore } from './stores/socket'
 
 export default {
   name: 'App',
@@ -13,16 +14,19 @@ export default {
   },
   async mounted() {
     await this.retrieveUser()
+    await this.connect()
   },
   computed: {
-    ...mapState(authenticationStore, ['user'])
+    ...mapState(authenticationStore, ['user']),
+    ...mapState(socketStore, ['connected'])
   },
   methods: {
     ...mapActions(authenticationStore, ['retrieveUser', 'logout']),
     async doLogout() {
       await this.logout()
       this.$router.push('/login') // @Digdem this is for you ;)
-    }
+    },
+    ...mapActions(socketStore, ['connect'])
   }
 }
 </script>
@@ -34,7 +38,12 @@ export default {
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
+      <br />
       <label v-if="user">Logged in as {{ user.nickName }}</label>
+      <br />
+      <label> Socket connection working: {{ connected ? 'yes' : 'no' }}</label>
+      <br />
+
       <nav>
         <RouterLink v-if="user" to="/">Home</RouterLink>
         <RouterLink v-if="user" to="/about">About</RouterLink>

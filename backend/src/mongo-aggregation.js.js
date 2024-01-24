@@ -5,16 +5,29 @@ const Movie = require('./model/aggregation/movie');
 const Comment = require('./model/aggregation/comment');
 const Theater = require('./model/aggregation/theater');
 
-// use ur connection string with the loadad sample data
-mongoose
-  .connect('')
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log('Could not connect to MongoDB', err));
-
 async function main() {
+  // use ur connection string with the loaded sample data
+  await mongoose.connect(
+    'mongodb+srv://cohort13:0DlSgV5kGHIBaINY@cohort13.c9kc8z7.mongodb.net/sample_mflix?retryWrites=true&w=majority'
+  );
+
+  console.log('Connected to MongoDB');
+
   // console.log(await Movie.find().limit(5));
   // console.log(await Comment.find().limit(5));
-  console.log(await Theater.find().limit(5));
+  // console.log(await Theater.find().limit(5));
+
+  await calcMoviesWithBestRating();
+}
+
+async function calcMoviesWithBestRating() {
+  const response = await Movie.aggregate([
+    { $match: { 'imdb.rating': { $gt: 1 } } },
+    { $sort: { 'imdb.rating': -1 } },
+    { $limit: 5 },
+  ]);
+
+  console.log(response);
 }
 
 main();

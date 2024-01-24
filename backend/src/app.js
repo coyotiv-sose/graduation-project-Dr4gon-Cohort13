@@ -34,7 +34,7 @@ let connectionPromise = mongoose.connection
 app.use(
   cors({
     // specific rules for security, also mandatory once u use withCredentials in the frontend
-    origin: true,
+    origin: process.env.NODE_ENV === 'production' ? process.env.FRONTEND_URL : 'http://localhost:5173',
     credentials: true,
   })
 );
@@ -166,6 +166,6 @@ app.createSocketServer = function (server) {
   });
 };
 
-console.log(`NODE_ENV is ${process.env.NODE_ENV}`);
+console.log(`NODE_ENV is ${process.env.NODE_ENV} with FRONTEND_URL ${process.env.FRONTEND_URL}`);
 
 module.exports = app;

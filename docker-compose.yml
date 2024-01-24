@@ -1,13 +1,15 @@
 services:
   backend:
-    image: backend
+    image: backendenvtest
     build:
       context: backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
     ports: # expose port 3000 to the outside world, so that we can actually access it
       - 3000:3000
-    env_file:
-      - ./backend/.env
+    environment:
+      - MONGODB_CONNECTION_STRING=mongodb+srv://cohort13:0DlSgV5kGHIBaINY@cohort13.c9kc8z7.mongodb.net/floater?retryWrites=true&w=majority
+      - OPENAI_API_KEY=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
+      - FRONTEND_URL=testfornumanUsingcompose
     volumes:
       - ./backend/src:/app/src
 

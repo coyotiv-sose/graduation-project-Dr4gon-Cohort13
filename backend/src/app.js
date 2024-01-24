@@ -166,6 +166,6 @@ app.createSocketServer = function (server) {
   });
 };
 
-console.log('blubb');
+console.log(`NODE_ENV is ${process.env.NODE_ENV}`);
 
 module.exports = app;

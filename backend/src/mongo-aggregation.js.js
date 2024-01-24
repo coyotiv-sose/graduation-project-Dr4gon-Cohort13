@@ -19,7 +19,14 @@ async function main() {
 
   // await calcMoviesWithBestRating();
 
-  const response = await getStatesSortedByTheater();
+  // const response = await getStatesSortedByTheater();
+
+  const response = await Movie.aggregate([
+    {
+      $group: { _id: { $isoDayOfWeek: '$released' }, avgRating: { $avg: '$imdb.rating' } },
+    },
+    { $sort: { avgRating: -1 } },
+  ]);
 
   console.log(response);
 }

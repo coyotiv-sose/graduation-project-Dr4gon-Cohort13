@@ -27,10 +27,28 @@ async function main() {
   //   .limit(10)
   //   .sort({ theaterId: 1 });
 
-  console.log(response);
+  await compressInformationToRelevant();
 }
 
 main();
+
+async function compressInformationToRelevant() {
+  const response = await Theater.aggregate([
+    { $group: { _id: '$location.address.state', theaters: { $push: '$theaterId' }, numberOfTheaters: { $sum: 1 } } },
+    { $sort: { numberOfTheaters: -1 } },
+    {
+      $group: {
+        _id: 1,
+        stateWithMostTheaters: { $first: '$_id' },
+        stateWithMostTheatersCount: { $first: '$numberOfTheaters' },
+        stateWithLeastTheaters: { $last: '$_id' },
+        stateWithLeastTheatersCount: { $last: '$numberOfTheaters' },
+      },
+    },
+  ]);
+
+  console.log(response);
+}
 
 /** Simplify with  $sortByCount: '$location.address.state' if u want to */
 async function calcStateWithLeastAmountOfTheaters() {

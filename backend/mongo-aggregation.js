@@ -20,7 +20,7 @@ async function main() {
 
   // Find theaters with a theaterId greater than 10, limit to 10, and sort by theaterId ascending
   // SELECT theaterId FROM theaters WHERE theaterId > 10 LIMIT 10 ORDER BY theaterId ASC
-  // const response = await Theater.find()
+  // const response2 = await Theater.find()
   //   .select({ theaterId: 1 })
   //   .where('theaterId')
   //   .gt(10)
@@ -29,10 +29,32 @@ async function main() {
 
   // await compressInformationToRelevant();
 
-  await changeOutputToObjects();
+  // await changeOutputToObjects();
+
+  // Assumption: There's a day on which movies get the best ratings, and therefore I could release my new movie there.
+  // Question: Which day of the week has the best average rating?
+
+  // const response = await Movie.aggregate([
+  //   { $match: { 'imdb.rating': { $gte: 1 } } },
+  //   { $sort: { 'imdb.rating': -1 } },
+  //   { $limit: 5 },
+  // ]);
+
+  await calcBestDayForMovieRelease();
 }
 
 main();
+
+async function calcBestDayForMovieRelease() {
+  const response = await Movie.aggregate([
+    {
+      $group: { _id: { $isoDayOfWeek: '$released' }, avgRating: { $avg: '$imdb.rating' } },
+    },
+    { $sort: { avgRating: -1 } },
+  ]);
+
+  console.log(response);
+}
 
 async function changeOutputToObjects() {
   const response = await Theater.aggregate([

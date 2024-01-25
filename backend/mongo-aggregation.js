@@ -27,10 +27,43 @@ async function main() {
   //   .limit(10)
   //   .sort({ theaterId: 1 });
 
-  await compressInformationToRelevant();
+  // await compressInformationToRelevant();
+
+  await changeOutputToObjects();
 }
 
 main();
+
+async function changeOutputToObjects() {
+  const response = await Theater.aggregate([
+    { $group: { _id: '$location.address.state', theaters: { $push: '$theaterId' }, numberOfTheaters: { $sum: 1 } } },
+    { $sort: { numberOfTheaters: -1 } },
+    {
+      $group: {
+        _id: 1,
+        stateWithMostTheaters: { $first: '$_id' },
+        stateWithMostTheatersCount: { $first: '$numberOfTheaters' },
+        stateWithLeastTheaters: { $last: '$_id' },
+        stateWithLeastTheatersCount: { $last: '$numberOfTheaters' },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        mostCrowdedState: {
+          state: '$stateWithMostTheaters',
+          numberOfTheaters: '$stateWithMostTheatersCount',
+        },
+        leastCrowdedState: {
+          state: '$stateWithLeastTheaters',
+          numberOfTheaters: '$stateWithLeastTheatersCount',
+        },
+      },
+    },
+  ]);
+
+  console.log(response);
+}
 
 async function compressInformationToRelevant() {
   const response = await Theater.aggregate([

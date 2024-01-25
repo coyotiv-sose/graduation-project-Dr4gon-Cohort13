@@ -19,8 +19,13 @@ async function main() {
   // await calcStateWithLeastAmountOfTheaters();
 
   // Find theaters with a theaterId greater than 10, limit to 10, and sort by theaterId ascending
-  // SELECT * FROM theaters WHERE theaterId > 10 LIMIT 10 ORDER BY theaterId ASC
-  const response = await Theater.find().where('theaterId').gt(10).limit(10).sort({ theaterId: 1 });
+  // SELECT theaterId FROM theaters WHERE theaterId > 10 LIMIT 10 ORDER BY theaterId ASC
+  const response = await Theater.find()
+    .select({ theaterId: 1 })
+    .where('theaterId')
+    .gt(10)
+    .limit(10)
+    .sort({ theaterId: 1 });
 
   console.log(response);
 }

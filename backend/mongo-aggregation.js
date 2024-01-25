@@ -20,18 +20,19 @@ async function main() {
 
   // Find theaters with a theaterId greater than 10, limit to 10, and sort by theaterId ascending
   // SELECT theaterId FROM theaters WHERE theaterId > 10 LIMIT 10 ORDER BY theaterId ASC
-  const response = await Theater.find()
-    .select({ theaterId: 1 })
-    .where('theaterId')
-    .gt(10)
-    .limit(10)
-    .sort({ theaterId: 1 });
+  // const response = await Theater.find()
+  //   .select({ theaterId: 1 })
+  //   .where('theaterId')
+  //   .gt(10)
+  //   .limit(10)
+  //   .sort({ theaterId: 1 });
 
   console.log(response);
 }
 
 main();
 
+/** Simplify with  $sortByCount: '$location.address.state' if u want to */
 async function calcStateWithLeastAmountOfTheaters() {
   const response = await Theater.aggregate([
     { $group: { _id: '$location.address.state', theaters: { $push: '$theaterId' }, numberOfTheaters: { $sum: 1 } } },

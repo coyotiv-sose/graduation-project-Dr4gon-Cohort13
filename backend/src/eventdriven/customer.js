@@ -1,5 +1,6 @@
 class Customer {
-  constructor(money) {
+  constructor(money, name) {
+    this.name = name;
     this.money = money;
   }
 }

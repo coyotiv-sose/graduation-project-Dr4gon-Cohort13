@@ -1,9 +1,16 @@
 class StockService {
-  stock = 2;
+  products = [];
 
-  reduceStock(amount) {
-    this.stock -= amount;
-    console.log(`Stock reduced by ${amount}. Current stock: ${this.stock}`);
+  addToStock(product) {
+    this.products.push(product);
+    console.log(`Stock increased by ${product.name}. Current stock:`, this.products);
+  }
+
+  reduceStock(boughtProduct) {
+    this.products = this.products.filter(product => {
+      return product.name !== boughtProduct.name;
+    });
+    console.log(`Stock reduced by ${boughtProduct.name}. Current stock:`, this.products);
   }
 }
 

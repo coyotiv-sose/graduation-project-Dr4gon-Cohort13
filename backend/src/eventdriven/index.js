@@ -20,8 +20,8 @@ function main() {
   stockService.addToStock(fingerling);
   stockService.addToStock(tuna);
 
-  Digdem.buy(fingerling, paymentService);
-  invoiceService.createInvoice(fingerling, Digdem);
+  Digdem.buy(fingerling, paymentService, invoiceService);
+
   deliveryService.sendProduct(stockService, fingerling, Digdem);
 }
 

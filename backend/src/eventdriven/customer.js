@@ -4,8 +4,8 @@ class Customer {
     this.money = money;
   }
 
-  buy(product, paymentService) {
-    paymentService.pay(this, product);
+  buy(product, paymentService, invoiceService) {
+    paymentService.pay(this, product, invoiceService);
   }
 }
 

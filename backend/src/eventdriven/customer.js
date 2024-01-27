@@ -7,7 +7,7 @@ class Customer {
   }
 
   buy(product, paymentService, invoiceService, transactionService) {
-    transactionService.track('Customer', 'Buy');
+    // transactionService.track('Customer', 'Buy');
     paymentService.pay(this, product, invoiceService, transactionService);
   }
 }

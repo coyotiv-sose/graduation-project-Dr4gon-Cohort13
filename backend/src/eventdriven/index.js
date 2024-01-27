@@ -15,11 +15,12 @@ function main() {
   const invoiceService = new InvoiceService();
   const deliveryService = new DeliveryService();
   const stockService = new StockService();
+  // const loggingService = new LoggingService();
 
   stockService.addToStock(fingerling);
   stockService.addToStock(tuna);
 
-  paymentService.pay(Digdem, fingerling);
+  Digdem.buy(fingerling, paymentService);
   invoiceService.createInvoice(fingerling, Digdem);
   deliveryService.sendProduct(stockService, fingerling, Digdem);
 }

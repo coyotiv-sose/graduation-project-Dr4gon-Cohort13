@@ -5,6 +5,7 @@ class PaymentService {
       console.log(`Payment successful. Remaining money: ${customer.money}`);
     } else {
       console.log(`Insufficient funds. Current money: ${customer.money}`);
+      throw Error('Insufficient funds');
     }
   }
 }

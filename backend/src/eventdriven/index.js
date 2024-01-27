@@ -4,6 +4,7 @@ const PaymentService = require('./payment-service');
 const InvoiceService = require('./invoice-service');
 const DeliveryService = require('./delivery-service');
 const StockService = require('./stock-service');
+const TransactionService = require('./transaction-service');
 
 function main() {
   const fingerling = new Product('Fingerling Surfboard', 1000);
@@ -15,14 +16,16 @@ function main() {
   const invoiceService = new InvoiceService();
   const deliveryService = new DeliveryService();
   const stockService = new StockService();
-  // const loggingService = new LoggingService();
+  const transactionService = new TransactionService();
 
   stockService.addToStock(fingerling);
   stockService.addToStock(tuna);
 
-  Digdem.buy(fingerling, paymentService, invoiceService);
+  Digdem.buy(fingerling, paymentService, invoiceService, transactionService);
 
   deliveryService.sendProduct(stockService, fingerling, Digdem);
+
+  transactionService.printTransactions();
 }
 
 main();
